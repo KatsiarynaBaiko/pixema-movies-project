@@ -4,6 +4,8 @@ import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import Input from './components/Input';
 import Title from './components/Title';
+import Username from './components/Username';
+
 
 const App = () => {
 
@@ -45,6 +47,8 @@ const App = () => {
         onChange={onChange}
         value={inputValue}
       />
+
+      <Username username={'Katsiaryna Baiko'} />
 
     </div>
   );
