@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button, { ButtonTypes } from './components/Button';
+import ButtonGroup from './components/ButtonGroup';
 import Title from './components/Title';
 
 const App = () => {
@@ -13,6 +14,9 @@ const App = () => {
 
       <Title title={'Pixema movies'} />
 
+      <ButtonGroup title={'ButtonGroup 1'} onClick={() => { alert('Disable') }} disabled={true} />
+      <ButtonGroup title={'ButtonGroup 2'} onClick={() => { alert('Disable') }} />
+    
     </div>
   );
 }
