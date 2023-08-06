@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
+import Input from './components/Input';
 import Title from './components/Title';
 
 const App = () => {
+
+// необходимо отслеживать состояние интупа => нужен useState
+  const [inputValue, setInputValue] = useState('');
+  const onChange = (value: string) => {
+    setInputValue(value)
+  }
+
   return (
     <div>
 
@@ -14,9 +22,30 @@ const App = () => {
 
       <Title title={'Pixema movies'} />
 
-      <ButtonGroup title={'ButtonGroup 1'} onClick={() => { alert('Disable') }} disabled={true} />
-      <ButtonGroup title={'ButtonGroup 2'} onClick={() => { alert('Disable') }} />
-    
+      <ButtonGroup onClick={() => { alert('Disable') }} disabled={true} />
+      <ButtonGroup onClick={() => { alert('Disable') }} />
+
+      <Input
+        title={'Test Input'}
+        placeholder={'Error'}
+        onChange={onChange}
+        value={inputValue}
+        errorText={'Error'}
+      />
+      <Input
+        title={'Test Input'}
+        placeholder={'Disable'}
+        onChange={onChange}
+        value={inputValue}
+        disabled={true}
+      />
+      <Input
+        title={'Test Input'}
+        placeholder={'Focus and Default'}
+        onChange={onChange}
+        value={inputValue}
+      />
+
     </div>
   );
 }

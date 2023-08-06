@@ -5,7 +5,7 @@ import { FavoritesIcon } from 'src/assets/icons';
 import { ShareIcon } from 'src/assets/icons';
 
 type ButtonGroupProps = {
-    title?: string | ReactElement;
+    // title?: string | ReactElement;
     onClick?: () => void;
     disabled?: boolean;
     className?: string;
@@ -13,7 +13,7 @@ type ButtonGroupProps = {
 
 // используем фрагмент ( <>...  </>) - это
 // пустой тег, когда нужно вставить куда-то группу элементов
-const ButtonGroup: FC<ButtonGroupProps> = ({ title, onClick, disabled, className }) => {
+const ButtonGroup: FC<ButtonGroupProps> = ({ onClick, disabled, className }) => {
     return (
         <>
             <div className={styles.buttonGroup}>
