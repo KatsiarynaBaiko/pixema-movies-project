@@ -1,0 +1,16 @@
+export { HomeIcon } from './HomeIcon';
+export { TrendsIcon } from './TrendsIcon';
+export { FavoritesIcon } from './FavoritesIcon';
+export { SettingIcon } from './SettingIcon';
+export { ShareIcon } from './ShareIcon';
+export { ArrowIcon } from './ArrowIcon';
+export { MenuIcon } from './MenuIcon';
+export { CloseIcon } from './CloseIcon';
+export { FilterIcon } from './FilterIcon';
+export { UserIcon } from './UserIcon';
+export { ArrowDownIcon } from './ArrowDownIcon';
+export { ArrowRightIcon } from './ArrowRightIcon';
+export { CheckIcon } from './CheckIcon';
+export { DeleteIcon } from './DeleteIcon';
+export { SearchIcon } from './SearchIcon';
+export { PixemaLogoIcon } from './PixemaLogoIcon';
