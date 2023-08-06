@@ -1,0 +1,22 @@
+@import "src/styles/colors";
+
+@mixin button {
+    padding: 16px 70px;
+    // font-family: 'Exo 2', sans-serif;
+    // font-size: 16px;
+    // font-style: normal;
+    // font-weight: 600;
+    // line-height: 24px;
+    box-sizing: border-box;
+    border: 1px solid transparent; // чтобы не скакала кнопочка
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+

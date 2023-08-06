@@ -1,0 +1,31 @@
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+.primary {
+    @include button();
+    background-color: $primary;
+    color: $white;
+
+    &:hover {
+        background-color: $primary-secondary;
+    }
+}
+
+.secondary {
+    @include button();
+    background-color: $graphite;
+    color: $white;
+
+    &:hover {
+        color: $light;
+    }
+}
+
+.disabled {
+    color: $light;
+    background-color: $secondary;
+
+    &:hover {
+        cursor: not-allowed; // чтобы нельзя было тыкнуть
+    }
+}
