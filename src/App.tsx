@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
+import Footer from './components/Footer';
 import Input from './components/Input';
 import Title from './components/Title';
 import Username from './components/Username';
@@ -9,7 +10,7 @@ import Username from './components/Username';
 
 const App = () => {
 
-// необходимо отслеживать состояние интупа => нужен useState
+  // необходимо отслеживать состояние интупа => нужен useState
   const [inputValue, setInputValue] = useState('');
   const onChange = (value: string) => {
     setInputValue(value)
@@ -49,6 +50,8 @@ const App = () => {
       />
 
       <Username username={'Katsiaryna Baiko'} />
+
+      <Footer />
 
     </div>
   );
