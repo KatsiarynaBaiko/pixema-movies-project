@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Input from './components/Input';
 import Title from './components/Title';
 import Username from './components/Username';
+import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
 
@@ -55,6 +56,8 @@ const App = () => {
       <Footer footer={'© All rights reserved'} />
 
       <SignUp/>
+
+      <SignIn/>
 
     </div>
   );

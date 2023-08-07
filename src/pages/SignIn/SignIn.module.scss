@@ -1,0 +1,14 @@
+@import "src/styles/colors";
+@import "src/styles/mixins";
+
+.signUp {
+    @include signLink();
+}
+
+.additionalInfo {
+    @include additionalInfo();
+}
+
+.forgotPassword {
+    @include forgotPassword();
+}

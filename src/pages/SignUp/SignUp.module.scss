@@ -2,9 +2,9 @@
 @import "src/styles/mixins";
 
 .signIn {
-  @include signLink
+  @include signLink();
 }
 
 .additionalInfo {
-  @include additionalInfo
+  @include additionalInfo();
 }

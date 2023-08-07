@@ -42,3 +42,19 @@
         text-decoration: underline;
     }
 }
+
+@mixin forgotPassword {
+    color: $secondary;
+    font-family: 'Exo 2';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
+    margin-top: -20px;
+
+
+    &:hover {
+        cursor: pointer;
+        color: $primary;
+    }
+}
