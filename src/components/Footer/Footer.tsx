@@ -1,11 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import styles from './Footer.module.scss';
 
-const Footer = () => {
+type FooterProps = {
+   footer: string;
+};
+
+const Footer: FC<FooterProps> = ({ footer }) => {
    return (
-      <div className={styles.footer}>
-         <div>© All Rights Reserved</div>
-      </div>
+      <div className={styles.footer}>{footer}</div>
    );
 };
 

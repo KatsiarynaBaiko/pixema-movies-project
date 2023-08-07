@@ -51,7 +51,7 @@ const App = () => {
 
       <Username username={'Katsiaryna Baiko'} />
 
-      <Footer />
+      <Footer footer={'© All rights reserved'} />
 
     </div>
   );
