@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Input from './components/Input';
 import Title from './components/Title';
 import Username from './components/Username';
+import SignUp from './pages/SignUp';
 
 
 const App = () => {
@@ -52,6 +53,8 @@ const App = () => {
       <Username username={'Katsiaryna Baiko'} />
 
       <Footer footer={'© All rights reserved'} />
+
+      <SignUp/>
 
     </div>
   );

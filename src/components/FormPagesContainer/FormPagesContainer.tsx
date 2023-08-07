@@ -17,20 +17,20 @@ type FormPagesContainerProps = {
 const FormPagesContainer: FC<FormPagesContainerProps> = ({ title, children, btnTitle, onSubmit, additionalInfo, isSubmitDisabled, }) => {
 
     return (
-        <div className={styles.container}>
+        // <div className={styles.container}>
+        <div className={styles.formContainer}>
             <Title title={title} />
-            <div className={styles.formContainer}>
-                <div className={styles.fieldsContainer}>{children}</div>
-                <Button
-                    type={ButtonTypes.Primary}
-                    title={btnTitle}
-                    onClick={onSubmit}
-                    className={styles.button}
-                    disabled={isSubmitDisabled}
-                />
-                <div>{additionalInfo}</div>
-            </div>
+            <div className={styles.fieldsContainer}>{children}</div>
+            <Button
+                type={ButtonTypes.Primary}
+                title={btnTitle}
+                onClick={onSubmit}
+                className={styles.button}
+                disabled={isSubmitDisabled}
+            />
+            <div>{additionalInfo}</div>
         </div>
+        // </div>
     )
 }
 

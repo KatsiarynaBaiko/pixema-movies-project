@@ -1,19 +1,18 @@
 @import "src/styles/colors";
 @import "src/styles/mixins";
 
-.container {
-  max-width: 1120px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  // background-color: $extra-light; //удаляем, так как применили цвет ко всем в Header
-}
-
+// .container {
+//   max-width: 1120px;
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+//   // background-color: $extra-light; //удаляем, так как применили цвет ко всем в Header
+// }
 
 .formContainer {
   width: 574px;
   flex: 1;
-  margin: 40px auto 0 auto;
+  margin: auto;
   padding: 40px;
   background-color: $dark;
   box-sizing: border-box;
@@ -26,6 +25,7 @@
   flex-direction: column;
   gap: 24px;
   flex: 1;
+  margin-top: 40px;
 }
 
 .button {
