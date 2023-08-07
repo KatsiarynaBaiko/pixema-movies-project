@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-
 import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
+import Card from './components/Card';
 import Footer from './components/Footer';
 import Input from './components/Input';
 import Title from './components/Title';
@@ -55,9 +55,53 @@ const App = () => {
 
       <Footer footer={'© All rights reserved'} />
 
-      <SignUp/>
+      <SignUp />
 
-      <SignIn/>
+      <SignIn />
+
+
+      <Card card={{
+        id: 0,
+        name: '',
+        genre: '',
+        poster: undefined,
+        rating: undefined,
+      }} />
+
+      <Card card={{
+        id: 1,
+        name: 'Mister Smith',
+        genre: '',
+        poster: '',
+        rating: 3,
+      }} />
+
+      <Card card={{
+        id: 2,
+        name: 'Mister Smith',
+        genre: 'Adventure',
+        poster: 'https://gamerwall.pro/uploads/posts/2022-02/1645708691_1-gamerwall-pro-p-astronavt-v-kosmose-krasivie-oboi-1.jpg',
+        rating: 6,
+      }} />
+
+      <Card card={{
+        id: 3,
+        name: 'Mister Smith',
+        genre: 'Adventure',
+        poster: 'https://gamerwall.pro/uploads/posts/2022-02/1645708691_1-gamerwall-pro-p-astronavt-v-kosmose-krasivie-oboi-1.jpg',
+        rating: 8,
+      }} />
+
+      <Card card={{
+        id: 4,
+        name: 'Mister Smith',
+        genre: 'Adventure',
+        poster: '',
+        rating: 10,
+      }} />
+
+
+
 
     </div>
   );
