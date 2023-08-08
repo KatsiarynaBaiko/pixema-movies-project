@@ -31,8 +31,7 @@ const Button: FC<ButtonProps> = ({ type, title, onClick, disabled, className }) 
             className={classNames(buttonStyle, className, { [styles.disabled]: disabled })}>
             {title}
         </div>
-    );
-
+    )
 }
 
 export default Button;

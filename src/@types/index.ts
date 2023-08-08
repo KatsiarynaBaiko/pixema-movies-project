@@ -5,7 +5,7 @@ export type Children = ReactElement | ReactElement[];
 
 // типизация нашей Card 
 // то есть данные о фильме 
-export type PostType = {
+export type Post = {
     id: number;
     name: string;
     type?: string;
@@ -32,3 +32,6 @@ export type PostType = {
     rating?: number;
     vote_count?: number;
 };
+
+// массив наших постов (карточек c фильмами)
+export type PostsList = Post[]

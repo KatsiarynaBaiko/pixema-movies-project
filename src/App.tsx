@@ -2,12 +2,110 @@ import React, { useState } from 'react';
 import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import Card from './components/Card';
+import CardsList from './components/CardsList';
 import Footer from './components/Footer';
 import Input from './components/Input';
 import Title from './components/Title';
 import Username from './components/Username';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+
+
+
+// в App (над App) создаем массив из мокнутых данных, на основе которых будет базироваться наш Card и CardsList
+const MOCK_ARRAY = [
+  {
+    id: 0,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Adventure",
+    rating: 10,
+  },
+  {
+    id: 1,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 5,
+  },
+  {
+    id: 2,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 6,
+  },
+  {
+    id: 3,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 3,
+  },
+  {
+    id: 4,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 3,
+  },
+  {
+    id: 5,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 5,
+  },
+  {
+    id: 6,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 6,
+  },
+  {
+    id: 7,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 3,
+  },
+  {
+    id: 8,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 3,
+  },
+  {
+    id: 9,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 3,
+  },
+  {
+    id: 10,
+    poster: 'https://img.freepik.com/free-photo/clapperboard-popcorn-film-stripe-and-cinema-tickets-on-wooden-desk_23-2148188189.jpg',
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 3,
+  },
+  {
+    id: 11,
+    poster: undefined,
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: 3,
+  },
+  {
+    id: 12,
+    poster: undefined,
+    name: "Astronauts prep",
+    genre: "Horror",
+    rating: undefined,
+  },
+];
 
 
 const App = () => {
@@ -100,6 +198,7 @@ const App = () => {
         rating: 10,
       }} />
 
+      <CardsList cardsList={MOCK_ARRAY} />
 
 
 

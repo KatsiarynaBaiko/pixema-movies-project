@@ -33,7 +33,7 @@ const ButtonGroup: FC<ButtonGroupProps> = ({ onClick, disabled, className }) => 
 
             </div>
         </>
-    );
+    )
 
 }
 

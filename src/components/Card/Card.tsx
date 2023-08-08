@@ -1,16 +1,16 @@
 import React, { FC } from "react";
 import classNames from 'classnames';
 import styles from './Card.module.scss'
-import { PostType } from "src/@types";
+import { Post } from "src/@types";
 import { TrendsIcon } from "src/assets/icons";
 
 type CardProps = {
-    card: PostType;
+    card: Post;
     classname?: string;
 }
 
 // у нас может не быть постера => проверяем через условный рендеринг
-//
+// также может не быть рейтинга => проверяем через условный рендеринг
 
 const Card: FC<CardProps> = ({ card, classname }) => {
 
@@ -19,10 +19,10 @@ const Card: FC<CardProps> = ({ card, classname }) => {
 
             <div className={styles.cardPosterContent}>
                 {card.poster ? (
-                    <div> <img src={card.poster} alt={card.name} className={styles.poster}/> </div>
+                    <div> <img src={card.poster} alt={card.name} className={styles.poster} /> </div>
                 ) : (
                     // <div className={styles.noPoster}>Sorry...No poster...</div>
-                    <div> <img src='https://gitu.net/gituimg/free-psd-mockups-download/Free-Pop-Corn-Box-Packaging-Mockup-PSD-Set-2.jpg' alt='Sorry...No poster..' className={styles.poster}/> </div>
+                    <div> <img src='https://gitu.net/gituimg/free-psd-mockups-download/Free-Pop-Corn-Box-Packaging-Mockup-PSD-Set-2.jpg' alt='Sorry...No poster..' className={styles.poster} /> </div>
 
                 )}
 
@@ -38,7 +38,7 @@ const Card: FC<CardProps> = ({ card, classname }) => {
                         {card.rating >= 7 ? <TrendsIcon /> : ''}
                         {card.rating}
                     </div>
-                ) : ""}
+                ) : ''}
             </div>
 
             <div className={styles.name}>{card.name}</div>

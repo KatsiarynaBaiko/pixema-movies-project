@@ -12,7 +12,7 @@ const Title: FC<TitleProps> = ({ title, className }) => {
 
     return <div className={styles.title}>{title}</div>
     
-};
+}
 
 export default Title;
 

@@ -6,9 +6,11 @@ type FooterProps = {
 };
 
 const Footer: FC<FooterProps> = ({ footer }) => {
+
    return (
       <div className={styles.footer}>{footer}</div>
-   );
-};
+   )
+
+}
 
 export default Footer;
