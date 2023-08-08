@@ -43,3 +43,14 @@ export enum TabTypes {
     Favourites = 'favourites',
     Settings = 'settings'
 }
+
+// наша табина + у нее может быть иконка
+export type Tab = {
+    key: TabTypes;
+    title: string;
+    disabled: boolean;
+    icon?: ReactElement;
+};
+
+// массив наших Табин
+export type TabsListType = Tab[];

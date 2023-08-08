@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { TrendsIcon } from './assets/icons';
+import { TabTypes } from './@types';
+import { FavoritesIcon, HomeIcon, SettingIcon, TrendsIcon } from './assets/icons';
 import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import Card from './components/Card';
@@ -7,6 +8,7 @@ import CardsList from './components/CardsList';
 import Footer from './components/Footer';
 import Input from './components/Input';
 import Tab from './components/Tab';
+import TabsList from './components/TabsList';
 import Title from './components/Title';
 import Username from './components/Username';
 import SignIn from './pages/SignIn';
@@ -118,6 +120,20 @@ const App = () => {
     setInputValue(value)
   }
 
+  // табины: которые приходят
+  // также отслеживаем их состояние => нужен useState
+  const tabsList = [
+    { key: TabTypes.Home, title: 'Home', icon: <HomeIcon />, disabled: false },
+    { key: TabTypes.Trends, title: 'Trends', icon: <TrendsIcon />, disabled: false },
+    { key: TabTypes.Favourites, title: 'Favourites', icon: <FavoritesIcon />, disabled: true },
+    { key: TabTypes.Settings, title: 'Settings', icon: <SettingIcon />, disabled: true }
+  ]
+  const [activeTab, setActiveTab] = useState(TabTypes.Home)
+  const onTabClick = (tab: TabTypes) => {
+    return () => setActiveTab(tab)
+  }
+
+
   return (
     <div>
 
@@ -202,7 +218,13 @@ const App = () => {
 
       <CardsList cardsList={MOCK_ARRAY} />
 
-      <Tab title={'Favourites'}/>
+      <Tab title={'Favourites'} />
+
+      <TabsList
+        tabsList={tabsList}
+        activeTab={activeTab}
+        onTabClick={onTabClick}
+      />
 
     </div>
   );

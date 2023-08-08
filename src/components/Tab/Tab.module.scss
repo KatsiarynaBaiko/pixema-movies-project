@@ -4,7 +4,6 @@
     display: flex;
     align-items: center;
     width: 125px;
-
     color: $secondary;
     font-family: 'Exo 2';
     font-size: 18px;
@@ -40,13 +39,21 @@
 }
 
 .disabled {
-    color: $secondary;
+    // color: $secondary;
+    color: $graphite;
 
     svg>path {
-        fill: $secondary;
+        // fill: $secondary;
+        fill: $graphite;
     }
 
     &:hover {
+        color: $graphite;
         cursor: not-allowed;
+
+        svg>path {
+            // fill: $secondary;
+            fill: $graphite;
+        }
     }
 }

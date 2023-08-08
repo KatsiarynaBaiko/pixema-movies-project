@@ -25,7 +25,7 @@ const Tab: FC<TabProps> = ({ title, icon, onClick, active, disabled }) => {
             })}
         >
             {icon}
-            <TrendsIcon />
+            {/* <TrendsIcon /> */}
             <span>{title}</span>
         </div>
     )
