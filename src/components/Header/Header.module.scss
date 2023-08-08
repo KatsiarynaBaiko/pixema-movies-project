@@ -1,0 +1,25 @@
+@import "src/styles/colors";
+
+.header {
+    // position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.pixemaLogo {
+    padding: 8px 0px 0px;
+    margin-right: 146px;
+}
+
+
+.searchButton {
+    margin: 8px 40px 0px 10px;
+    padding: 16px 16px;
+}
+
+.userName {
+    padding: 8px 0px 0px;
+}
+

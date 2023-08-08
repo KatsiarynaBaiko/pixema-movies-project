@@ -6,6 +6,7 @@ import ButtonGroup from './components/ButtonGroup';
 import Card from './components/Card';
 import CardsList from './components/CardsList';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import Input from './components/Input';
 import Tab from './components/Tab';
 import TabsList from './components/TabsList';
@@ -225,6 +226,8 @@ const App = () => {
         activeTab={activeTab}
         onTabClick={onTabClick}
       />
+
+      <Header />
 
     </div>
   );
