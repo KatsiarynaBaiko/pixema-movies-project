@@ -21,14 +21,14 @@ const ButtonGroup: FC<ButtonGroupProps> = ({ onClick, disabled, className }) => 
                     onClick={!disabled ? onClick : undefined}
                     className={classNames(styles.button, styles.rightButton, className, { [styles.disabled]: disabled })}
                 >
-                    {<FavoritesIcon />}
+                    <FavoritesIcon />
                 </div>
 
                 <div
                     onClick={!disabled ? onClick : undefined}
                     className={classNames(styles.button, styles.leftButton, className, { [styles.disabled]: disabled })}
                 >
-                    {<ShareIcon />}
+                    <ShareIcon />
                 </div>
 
             </div>

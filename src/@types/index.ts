@@ -35,3 +35,11 @@ export type Post = {
 
 // массив наших постов (карточек c фильмами)
 export type PostsList = Post[]
+
+// enum, так как у нас несколько свойств Tab
+export enum TabTypes {
+    Home = 'home',
+    Trends = 'trends',
+    Favourites = 'favourites',
+    Settings = 'settings'
+}

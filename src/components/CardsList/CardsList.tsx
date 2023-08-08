@@ -12,6 +12,7 @@ type CardsListProps = {
 
 // если не прогрузились посты: нужна проверка 
 // => условие return cardsList.length && cardsList.length > 0 ? (..показать верстку..) : null
+// не забываем прописать key (всегда), если мапим список key={card.id}
 const CardsList: FC<CardsListProps> = ({ cardsList, isLoading }) => {
 
     return cardsList && cardsList.length > 0 ? (

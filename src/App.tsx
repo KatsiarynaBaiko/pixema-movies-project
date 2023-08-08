@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { TrendsIcon } from './assets/icons';
 import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import Card from './components/Card';
 import CardsList from './components/CardsList';
 import Footer from './components/Footer';
 import Input from './components/Input';
+import Tab from './components/Tab';
 import Title from './components/Title';
 import Username from './components/Username';
 import SignIn from './pages/SignIn';
@@ -200,7 +202,7 @@ const App = () => {
 
       <CardsList cardsList={MOCK_ARRAY} />
 
-
+      <Tab title={'Favourites'}/>
 
     </div>
   );

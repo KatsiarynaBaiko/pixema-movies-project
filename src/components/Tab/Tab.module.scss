@@ -1,0 +1,52 @@
+@import "src/styles/colors";
+
+.tab {
+    display: flex;
+    align-items: center;
+    width: 125px;
+
+    color: $secondary;
+    font-family: 'Exo 2';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+
+    span {
+        margin-left: 20px;
+    }
+
+    svg>path {
+        fill: $secondary;
+    }
+
+    &:hover {
+        color: $white;
+
+        svg>path {
+            fill: $white;
+        }
+    }
+}
+
+.active {
+    color: $primary;
+
+    svg>path {
+        fill: $primary;
+    }
+}
+
+.disabled {
+    color: $secondary;
+
+    svg>path {
+        fill: $secondary;
+    }
+
+    &:hover {
+        cursor: not-allowed;
+    }
+}
