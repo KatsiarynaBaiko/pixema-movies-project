@@ -1,0 +1,58 @@
+@import "src/styles/colors";
+
+.container {
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: $black; // фон всех страничеек
+    position: relative;
+    overflow: scroll;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    border: 1px solid $white;
+}
+
+.containerContent {
+    position: fixed;
+    top: 96px;
+    height: calc(100% - 96px);
+    display: flex;
+    flex-direction: row;
+    border: 1px solid $white;
+}
+
+.containerContentSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tabsList {
+    border: 1px solid $white;
+    width: 130px;
+    margin-right: 178px;
+    // background-color: $white;
+}
+
+.infoContainer {
+    border: 1px solid $white;
+
+    p {
+        color: white;
+    }
+}
+
+.footer {
+    border: 1px solid $white;
+    display: flex;
+    align-items: flex-start;
+    color: aqua;
+}
+
+.footerSecondary {
+    color: $secondary;
+}

@@ -12,6 +12,7 @@ import Tab from './components/Tab';
 import TabsList from './components/TabsList';
 import Title from './components/Title';
 import Username from './components/Username';
+import PagesContainer from './pages/PagesContainer';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
@@ -138,7 +139,7 @@ const App = () => {
   return (
     <div>
 
-      <Button type={ButtonTypes.Primary} title={'Primary Disable'} onClick={() => { alert('Disable') }} disabled={true} />
+      {/* <Button type={ButtonTypes.Primary} title={'Primary Disable'} onClick={() => { alert('Disable') }} disabled={true} />
       <Button type={ButtonTypes.Primary} title={'Primary'} onClick={() => { alert('Primary') }} />
       <Button type={ButtonTypes.Secondary} title={'Secondary'} onClick={() => { }} />
 
@@ -227,7 +228,10 @@ const App = () => {
         onTabClick={onTabClick}
       />
 
-      <Header />
+      <Header /> */}
+
+      <PagesContainer/>
+
 
     </div>
   );
