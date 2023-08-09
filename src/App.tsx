@@ -12,6 +12,7 @@ import Tab from './components/Tab';
 import TabsList from './components/TabsList';
 import Title from './components/Title';
 import Username from './components/Username';
+import Home from './pages/Home';
 import PagesContainer from './pages/PagesContainer';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
@@ -230,9 +231,10 @@ const App = () => {
 
       <Header /> */}
 
-      <PagesContainer/>
+      {/* <PagesContainer/> */}
 
-
+      <Home />
+      
     </div>
   );
 }
