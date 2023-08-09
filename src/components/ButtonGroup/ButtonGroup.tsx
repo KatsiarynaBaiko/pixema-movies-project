@@ -1,8 +1,11 @@
 import React, { FC, ReactElement } from 'react'
 import classNames from 'classnames';
-import styles from './ButtonGroup.module.scss'
+
 import { FavoritesIcon } from 'src/assets/icons';
 import { ShareIcon } from 'src/assets/icons';
+
+import styles from './ButtonGroup.module.scss'
+
 
 type ButtonGroupProps = {
     // title?: string | ReactElement;

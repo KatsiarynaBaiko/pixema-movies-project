@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import styles from './TabsList.module.scss';
 import { TabsListType, TabTypes } from "src/@types";
+
+import styles from './TabsList.module.scss';
 import Tab from "../Tab";
 
 

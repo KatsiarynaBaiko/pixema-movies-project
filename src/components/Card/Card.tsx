@@ -1,8 +1,11 @@
 import React, { FC } from "react";
 import classNames from 'classnames';
-import styles from './Card.module.scss'
+
 import { Post } from "src/@types";
 import { TrendsIcon } from "src/assets/icons";
+
+import styles from './Card.module.scss'
+
 
 type CardProps = {
     card: Post;

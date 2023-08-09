@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styles from './Home.module.scss';
 import classNames from "classnames";
+
 import CardsList from "src/components/CardsList";
 import { PostsList } from "src/@types";
+
+import styles from './Home.module.scss';
 
 
 // MOCK_ARRAY можно прокидывать 

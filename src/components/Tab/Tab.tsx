@@ -1,8 +1,10 @@
 import React, { FC, ReactElement } from "react";
-
 import classNames from "classnames";
-import styles from './Tab.module.scss';
+
 import { TrendsIcon } from "src/assets/icons";
+
+import styles from './Tab.module.scss';
+
 
 
 type TabProps = {

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-import styles from './SignIn.module.scss'
+
 import FormPagesContainer from "src/components/FormPagesContainer";
 import Input from "src/components/Input";
+
+import styles from './SignIn.module.scss'
 
 
 const SignIn = () => {

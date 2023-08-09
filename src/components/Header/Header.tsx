@@ -1,10 +1,13 @@
-import classNames from "classnames";
 import React, { useState } from "react"
+import classNames from "classnames";
+
 import { PixemaLogoIcon, SearchIcon } from "src/assets/icons";
+
+import styles from './Header.module.scss';
 import Button, { ButtonTypes } from "../Button";
 import Input from "../Input";
 import Username from "../Username";
-import styles from './Header.module.scss';
+
 
 
 // отслеживаем есостояние интпута => используем useState

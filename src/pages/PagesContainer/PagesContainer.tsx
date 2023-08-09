@@ -1,12 +1,13 @@
 import React, { useMemo, useState } from "react"
+import classNames from "classnames";
+
 import { TabTypes } from "src/@types";
 import { FavoritesIcon, HomeIcon, SettingIcon, TrendsIcon } from "src/assets/icons";
 import Header from "src/components/Header";
 import TabsList from "src/components/TabsList";
 import Footer from "src/components/Footer";
-import styles from './PagesContainer.module.scss';
-import classNames from "classnames";
 
+import styles from './PagesContainer.module.scss';
 
 
 // step 1

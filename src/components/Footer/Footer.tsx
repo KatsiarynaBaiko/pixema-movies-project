@@ -1,6 +1,8 @@
-import classNames from "classnames";
 import React, { FC } from "react";
+import classNames from "classnames";
+
 import styles from './Footer.module.scss';
+
 
 type FooterProps = {
    footer: string;

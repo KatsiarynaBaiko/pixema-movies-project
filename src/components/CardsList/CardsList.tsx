@@ -1,8 +1,10 @@
 
 import React, { FC } from "react";
+
 import { PostsList } from "src/@types";
-import Card from "../Card/Card";
+
 import styles from './CardsList.module.scss';
+import Card from "../Card/Card";
 
 
 type CardsListProps = {

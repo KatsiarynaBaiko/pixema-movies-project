@@ -1,8 +1,11 @@
 import React, { FC, ReactElement } from "react";
-import styles from './FormPagesContainer.module.scss';
+
 import { Children } from "src/@types";
+
+import styles from './FormPagesContainer.module.scss';
 import Title from "../Title";
 import Button, { ButtonTypes } from "../Button";
+
 
 type FormPagesContainerProps = {
     title: string;

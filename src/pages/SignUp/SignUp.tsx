@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+
 import FormPagesContainer from "src/components/FormPagesContainer";
 import Input from "src/components/Input";
+
 import styles from './SignUp.module.scss'
+
 
 // отслеживаем состояние инпутов => useState
 const SignUp = () => {
