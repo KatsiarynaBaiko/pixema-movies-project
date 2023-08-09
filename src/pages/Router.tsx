@@ -1,4 +1,4 @@
-import React  from "react"
+import React from "react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Home from "./Home"
 import PagesContainer from "./PagesContainer"
@@ -14,7 +14,7 @@ export enum RoutesList {
     Settings = "/settings",
     SelectedPost = "selected-post",
     // SelectedPost = '/post/:id',
-    Search  = "search",
+    Search = "search",
     // Search = "/posts/:search",
     SignUp = "/sign-up",
     SignIn = "/sign-in",
@@ -27,7 +27,7 @@ export enum RoutesList {
 // ---
 // добавляем оберточный роутер, который оборачивает внутренние пути (то, что внутри будет меняться)
 // <Route path={RoutesList.Home} element={<Header /> }/>
-{/* <Route path={RoutesList.Home} element={<PagesContainer />}>  */}
+{/* <Route path={RoutesList.Home} element={<PagesContainer />}>  */ }
 
 const Router = () => {
 
@@ -35,10 +35,10 @@ const Router = () => {
         <Routes>
             <Route path={RoutesList.Home} element={<PagesContainer />}>
                 <Route path={RoutesList.Home} element={<Home />} />
-                <Route path={RoutesList.SignUp} element={ <SignUp />} />
-                <Route path={RoutesList.SignIn} element={<SignIn />} />
                 <Route path={RoutesList.Default} element={<Navigate to={RoutesList.Home} />} />
             </Route>
+            <Route path={RoutesList.SignUp} element={<SignUp />} />
+            <Route path={RoutesList.SignIn} element={<SignIn />} />
         </Routes>
     </BrowserRouter>
 }

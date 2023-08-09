@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { PixemaLogoIcon } from "src/assets/icons";
 
 import FormPagesContainer from "src/components/FormPagesContainer";
 import Input from "src/components/Input";
@@ -15,6 +16,7 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState('')
 
     return (
+
         <FormPagesContainer
             title={'Sign Up'}
             btnTitle={'Sign Up'}
@@ -30,7 +32,9 @@ const SignUp = () => {
             <Input title={'Email'} placeholder={'Your email'} onChange={setEmail} value={email} />
             <Input title={'Password'} placeholder={'Your password'} onChange={setPassword} value={password} />
             <Input title={'Confirm Password'} placeholder={'Confirm password'} onChange={setConfirmPassword} value={confirmPassword} />
+
         </FormPagesContainer>
+
     )
 };
 
