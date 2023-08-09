@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { TabTypes } from './@types';
 import { FavoritesIcon, HomeIcon, SettingIcon, TrendsIcon } from './assets/icons';
 import Button, { ButtonTypes } from './components/Button';
@@ -14,8 +15,10 @@ import Title from './components/Title';
 import Username from './components/Username';
 import Home from './pages/Home';
 import PagesContainer from './pages/PagesContainer';
+import Router from './pages/Router';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+
 
 
 
@@ -233,8 +236,11 @@ const App = () => {
 
       {/* <PagesContainer/> */}
 
-      <Home />
-      
+      {/* <Home /> */}
+
+      <Router />
+
+
     </div>
   );
 }

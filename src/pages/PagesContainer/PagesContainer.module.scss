@@ -1,11 +1,12 @@
 @import "src/styles/colors";
 
+
 .container {
     flex: 1;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: $black; // фон всех страничеек
+    background-color: $black; 
     position: relative;
     overflow: scroll;
 }
@@ -13,44 +14,38 @@
 .header {
     position: fixed;
     width: 100%;
-    border: 1px solid $white;
-}
-
-.containerContent {
-    position: fixed;
-    top: 96px;
-    height: calc(100% - 96px);
-    display: flex;
-    flex-direction: row;
-    border: 1px solid $white;
-}
-
-.containerContentSide {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.tabsList {
-    border: 1px solid $white;
-    width: 130px;
-    margin-right: 178px;
-    // background-color: $white;
+    // border: 1px solid $white;
 }
 
 .infoContainer {
-    border: 1px solid $white;
-
-    p {
-        color: white;
-    }
+    // border: 1px solid $white;
+    top: 96px;
+    position: relative;
+    overflow: scroll;
+    margin: 0px auto 0px 308px;
 }
 
+
+.containerContentSide {
+    width: 308px;
+    // border: 1px solid $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 96px;
+    height: calc(100% - 96px);
+}
+
+// .tabsList {
+//     // border: 1px solid $white;
+//     // background-color: $white;
+// }
+
 .footer {
-    border: 1px solid $white;
+    // border: 1px solid $white;
     display: flex;
     align-items: flex-start;
-    color: aqua;
 }
 
 .footerSecondary {

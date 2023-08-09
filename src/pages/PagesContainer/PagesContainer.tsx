@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react"
 import classNames from "classnames";
+import { Outlet } from "react-router-dom";
 
 import { TabTypes } from "src/@types";
 import { FavoritesIcon, HomeIcon, SettingIcon, TrendsIcon } from "src/assets/icons";
@@ -9,11 +10,8 @@ import Footer from "src/components/Footer";
 
 import styles from './PagesContainer.module.scss';
 
-
-// step 1
 // так вот Outlet - это все то, что внутри подменяется (наши странички условно)
 // react самостоятельно контролит, какой компонент (странички) нужно менять/подтягивать по пути
-
 const PagesContainer = () => {
 
     const [activeTab, setActiveTab] = useState(TabTypes.Home);
@@ -38,38 +36,29 @@ const PagesContainer = () => {
 
 
     return (
+
         <div className={styles.container}>
 
             <div className={styles.header}>
                 <Header />
             </div>
 
-            <div className={styles.containerContent}>
-
-                <div className={styles.containerContentSide}>
-                    <div className={styles.tabsList}>
-                        {/* <TabsList /> */}
-                        <TabsList
-                            tabsList={tabsList}
-                            activeTab={activeTab}
-                            onTabClick={onTabClick}
-                        />
-                    </div >
-                    <div className={styles.footer}>
-                        <Footer footer={'© All rights reserved'} className={styles.footerSecondary}/>
-                    </div>
-                </div>
-
-                <div className={styles.infoContainer}>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id tempora rerum asperiores doloribus eum nobis sed ex est quod natus? Odio consequuntur voluptates mollitia omnis facere quam magnam dolorum explicabo!</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id tempora rerum asperiores doloribus eum nobis sed ex est quod natus? Odio consequuntur voluptates mollitia omnis facere quam magnam dolorum explicabo!</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id tempora rerum asperiores doloribus eum nobis sed ex est quod natus? Odio consequuntur voluptates mollitia omnis facere quam magnam dolorum explicabo!</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id tempora rerum asperiores doloribus eum nobis sed ex est quod natus? Odio consequuntur voluptates mollitia omnis facere quam magnam dolorum explicabo!</p>
-
-                    {/* тут будет <Outlet /> */}
-                </div>
+            <div className={styles.infoContainer}>
+                <Outlet />
             </div>
 
+            <div className={styles.containerContentSide}>
+                <div className={styles.tabsList}>
+                    <TabsList
+                        tabsList={tabsList}
+                        activeTab={activeTab}
+                        onTabClick={onTabClick}
+                    />
+                </div >
+                <div className={styles.footer}>
+                    <Footer footer={'© All rights reserved'} className={styles.footerSecondary} />
+                </div>
+            </div>
         </div >
     );
 };
