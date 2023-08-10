@@ -4,9 +4,9 @@ import Favourites from "./Favourites"
 import Home from "./Home"
 import PagesContainer from "./PagesContainer"
 import SelectedPost from "./SelectedPost"
-
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
+import Trends from "./Trends"
 
 
 //  enum, так как наши пути захардкожены(неизменны)
@@ -40,7 +40,8 @@ const Router = () => {
                 <Route path={RoutesList.Home} element={<Home />} />
                 {/* <Route path={RoutesList.SelectedPost} element={<SelectedPost />} /> */}
                 <Route path={RoutesList.Favourites} element={< Favourites />} />
-                
+                <Route path={RoutesList.Trends} element={< Trends />} />
+
                 <Route path={RoutesList.Default} element={<Navigate to={RoutesList.Home} />} />
             </Route>
             <Route path={RoutesList.SignUp} element={<SignUp />} />
