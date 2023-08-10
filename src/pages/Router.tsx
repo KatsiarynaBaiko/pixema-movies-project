@@ -2,6 +2,8 @@ import React from "react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Home from "./Home"
 import PagesContainer from "./PagesContainer"
+import SelectedPost from "./SelectedPost"
+
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 
@@ -35,6 +37,8 @@ const Router = () => {
         <Routes>
             <Route path={RoutesList.Home} element={<PagesContainer />}>
                 <Route path={RoutesList.Home} element={<Home />} />
+                {/* <Route path={RoutesList.SelectedPost} element={<SelectedPost />} /> */}
+                
                 <Route path={RoutesList.Default} element={<Navigate to={RoutesList.Home} />} />
             </Route>
             <Route path={RoutesList.SignUp} element={<SignUp />} />
