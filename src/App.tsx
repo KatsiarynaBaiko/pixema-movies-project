@@ -239,26 +239,25 @@ const App = () => {
 
       {/* <Home /> */}
 
-      {/* <Router /> */}
+      <Router />
 
-      <SelectedPost 
-        poster={'https://gamerwall.pro/uploads/posts/2022-02/1645708691_1-gamerwall-pro-p-astronavt-v-kosmose-krasivie-oboi-1.jpg'} 
-        genre={'Adventure'} 
-        name={'Wonder Woman: 1984'} 
-        rating={8} 
-        imdb_id={'IMDb 7'} 
-        runtime={'130 min'} 
-        description={'In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord. '} 
-        year={'2011'} 
-        release_date={'15 Jul 2011'} 
-        revenue={'$381,409,310'} 
+      {/* <SelectedPost
+        poster={'https://gamerwall.pro/uploads/posts/2022-02/1645708691_1-gamerwall-pro-p-astronavt-v-kosmose-krasivie-oboi-1.jpg'}
+        genre={'Adventure'}
+        name={'Wonder Woman: 1984'}
+        rating={8}
+        imdb_id={'IMDb 7'}
+        runtime={'130 min'}
+        description={'In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord. '}
+        year={'2011'}
+        release_date={'15 Jul 2011'}
+        revenue={'$381,409,310'}
         country={'United Kingdom, United States'}
-        production={'Heyday Films, Moving Picture Company, Warner Bros.'} 
-        actors={'Daniel Radcliffe, Emma Watson, Rupert Grint'} 
-        director={'David Yates'} 
+        production={'Heyday Films, Moving Picture Company, Warner Bros.'}
+        actors={'Daniel Radcliffe, Emma Watson, Rupert Grint'}
+        director={'David Yates'}
         writers={'J.K. Rowling, Steve Kloves'}
-       />
-
+      /> */}
 
     </div>
   );
