@@ -2,6 +2,7 @@ import React from "react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import Favourites from "./Favourites"
 import Home from "./Home"
+import MySettings from "./MySettings"
 import PagesContainer from "./PagesContainer"
 import SelectedPost from "./SelectedPost"
 import SignIn from "./SignIn"
@@ -14,7 +15,7 @@ export enum RoutesList {
     Home = "/",
     Trends = "/trends",
     Favourites = "/favourites",
-    Settings = "/settings",
+    MySettings = "/my-settings",
     SelectedPost = "selected-post",
     // SelectedPost = '/post/:id',
     Search = "search",
@@ -39,9 +40,9 @@ const Router = () => {
             <Route path={RoutesList.Home} element={<PagesContainer />}>
                 <Route path={RoutesList.Home} element={<Home />} />
                 {/* <Route path={RoutesList.SelectedPost} element={<SelectedPost />} /> */}
-                <Route path={RoutesList.Favourites} element={< Favourites />} />
-                <Route path={RoutesList.Trends} element={< Trends />} />
-
+                <Route path={RoutesList.Favourites} element={<Favourites />} />
+                <Route path={RoutesList.Trends} element={<Trends />} />
+                <Route path={RoutesList.MySettings} element={<MySettings />} />
                 <Route path={RoutesList.Default} element={<Navigate to={RoutesList.Home} />} />
             </Route>
             <Route path={RoutesList.SignUp} element={<SignUp />} />
