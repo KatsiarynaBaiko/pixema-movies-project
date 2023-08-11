@@ -1,10 +1,12 @@
 
 import React, { FC } from "react";
 
-import { PostsList } from "src/@types";
+import { Post, PostsList } from "src/@types";
 
 import styles from './CardsList.module.scss';
 import Card from "../Card/Card";
+import { useDispatch } from "react-redux";
+import { setSavedStatus } from "src/redux/reducers/postSlice";
 
 
 type CardsListProps = {
@@ -17,11 +19,17 @@ type CardsListProps = {
 // не забываем прописать key (всегда), если мапим список key={card.id}
 const CardsList: FC<CardsListProps> = ({ cardsList, isLoading }) => {
 
+    const dispatch = useDispatch();
+
+    const onSavedClick = (card: Post) => () => {
+        dispatch(setSavedStatus({ card }))
+    }
+
     return cardsList && cardsList.length > 0 ? (
 
         <div className={styles.container}>
             {cardsList.map((card) => {
-                return <Card card={card} key={card.id} />
+                return <Card card={card} key={card.id} onSavedClick={onSavedClick(card)}/>
             })}
         </div>
     ) : null

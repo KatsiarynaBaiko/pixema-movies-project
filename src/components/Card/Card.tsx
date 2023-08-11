@@ -2,22 +2,31 @@ import React, { FC } from "react";
 import classNames from 'classnames';
 
 import { Post } from "src/@types";
-import { TrendsIcon } from "src/assets/icons";
+import { AddFavoritesIcon, FavoritesIconBlank, TrendsIcon } from "src/assets/icons";
 
 import styles from './Card.module.scss'
+import { useSelector } from "react-redux";
+import { PostSelectors } from "src/redux/reducers/postSlice";
 
 
 type CardProps = {
     card: Post;
     classname?: string;
+    onSavedClick?: () => void;
 }
 
 // у нас может не быть постера => проверяем через условный рендеринг
 // также может не быть рейтинга => проверяем через условный рендеринг
 
-const Card: FC<CardProps> = ({ card, classname }) => {
+const Card: FC<CardProps> = ({ card, classname, onSavedClick }) => {
+
+    const savedPosts = useSelector(PostSelectors.getSavedPosts);
+    const savedIndex = savedPosts.findIndex((item) => item.id === card.id);
+
 
     return (
+
+
         <div className={styles.cardContainer}>
 
             <div className={styles.cardPosterContent}>
@@ -42,6 +51,10 @@ const Card: FC<CardProps> = ({ card, classname }) => {
                         {card.rating}
                     </div>
                 ) : ''}
+
+                <div onClick={onSavedClick} className={styles.favouritesCard}> 
+                    {savedIndex > -1 ? <AddFavoritesIcon /> : <FavoritesIconBlank />}
+                </div>
             </div>
 
             <div className={styles.name}>{card.name}</div>

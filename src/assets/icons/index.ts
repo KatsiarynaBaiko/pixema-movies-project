@@ -14,3 +14,5 @@ export { CheckIcon } from './CheckIcon';
 export { DeleteIcon } from './DeleteIcon';
 export { SearchIcon } from './SearchIcon';
 export { PixemaLogoIcon } from './PixemaLogoIcon';
+export { AddFavoritesIcon } from './AddFavoritesIcon';
+export { FavoritesIconBlank } from './FavoritesIconBlank';

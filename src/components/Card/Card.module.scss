@@ -64,6 +64,23 @@
     background-color: $green;
 }
 
+.favouritesCard {
+    position: absolute;
+    left: 216px;
+    top: 20px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background-color: $graphite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    svg>path{
+        fill: $primary;
+    }
+}
+
 
 .name {
     font-family: 'Exo 2';
