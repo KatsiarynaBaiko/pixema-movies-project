@@ -7,6 +7,7 @@ import styles from './FormPagesContainer.module.scss';
 import Title from "../Title";
 import Button, { ButtonTypes } from "../Button";
 import { PixemaLogoIcon } from "src/assets/icons";
+import Footer from "../Footer";
 
 type FormPagesContainerProps = {
     title: string;
@@ -37,7 +38,9 @@ const FormPagesContainer: FC<FormPagesContainerProps> = ({ title, children, btnT
                     <div>{additionalInfo}</div>
                 </div>
             </div>
-
+            <div className={styles.footer}>
+                <Footer footer={'© All rights reserved'} className={styles.footerSecondary} />
+            </div>
         </div>
     )
 }

@@ -8,6 +8,9 @@
   background-position: center;
   width: 100%;
   height: 100vh;
+  display:flex;
+  flex-direction: column;
+  flex: 1 0 auto;
 }
 
 .pixemaLogo {
@@ -17,8 +20,9 @@
 }
 
 .formContainerCenter {
-  display: block;
-  margin-top: auto;
+  flex: 1 0 auto;
+  // display: block;
+  // margin-top: auto;
 }
 
 .formContainer {
@@ -44,3 +48,16 @@
 .button {
   margin-top: 40px;
 }
+
+.footer {
+  // display: flex;
+  // align-items: flex-end;
+  flex: 0 0 auto;
+}
+
+// .footerSecondary {
+
+//   display: flex;
+//   align-items: flex-end;
+
+// }
