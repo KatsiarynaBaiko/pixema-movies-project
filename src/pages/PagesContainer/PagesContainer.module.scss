@@ -6,7 +6,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: $black; 
+    background-color: $black;
     position: relative;
     overflow: scroll;
 }
@@ -50,4 +50,62 @@
 
 .footerSecondary {
     color: $secondary;
+}
+
+
+.tab {
+    display: flex;
+    align-items: center;
+    width: 125px;
+    color: $secondary;
+    font-family: 'Exo 2';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 40px;
+    gap: 20px;
+
+    svg>path {
+        fill: $secondary;
+    }
+
+    &:hover {
+        color: $white;
+
+        svg>path {
+            fill: $white;
+        }
+    }
+}
+
+.activeTab {
+    color: $primary;
+
+    svg>path {
+        fill: $primary;
+    }
+}
+
+
+.disabledTab {
+
+    color: $graphite;
+
+    svg>path {
+
+        fill: $graphite;
+    }
+
+    &:hover {
+        color: $graphite;
+        cursor: not-allowed;
+
+        svg>path {
+
+            fill: $graphite;
+        }
+    }
 }
