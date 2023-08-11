@@ -1,6 +1,5 @@
 export { HomeIcon } from './HomeIcon';
 export { TrendsIcon } from './TrendsIcon';
-export { FavoritesIcon } from './FavoritesIcon';
 export { SettingIcon } from './SettingIcon';
 export { ShareIcon } from './ShareIcon';
 export { ArrowIcon } from './ArrowIcon';
@@ -14,5 +13,6 @@ export { CheckIcon } from './CheckIcon';
 export { DeleteIcon } from './DeleteIcon';
 export { SearchIcon } from './SearchIcon';
 export { PixemaLogoIcon } from './PixemaLogoIcon';
-export { AddFavoritesIcon } from './AddFavoritesIcon';
-export { FavoritesIconBlank } from './FavoritesIconBlank';
+export { AddFavouritesIcon } from './AddFavouritesIcon';
+export { FavouritesIconBlank } from './FavouritesIconBlank';
+export { FavouritesIcon } from './FavouritesIcon';

@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from 'react'
 import classNames from 'classnames';
 
-import { FavoritesIcon } from 'src/assets/icons';
+import { FavouritesIcon } from 'src/assets/icons';
 import { ShareIcon } from 'src/assets/icons';
 
 import styles from './ButtonGroup.module.scss'
@@ -24,7 +24,7 @@ const ButtonGroup: FC<ButtonGroupProps> = ({ onClick, disabled, className }) => 
                     onClick={!disabled ? onClick : undefined}
                     className={classNames(styles.button, styles.rightButton, className, { [styles.disabled]: disabled })}
                 >
-                    <FavoritesIcon />
+                    <FavouritesIcon />
                 </div>
 
                 <div

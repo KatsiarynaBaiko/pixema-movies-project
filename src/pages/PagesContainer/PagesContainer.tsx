@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import { TabTypes } from "src/@types";
-import { FavoritesIcon, HomeIcon, SettingIcon, TrendsIcon } from "src/assets/icons";
+import { FavouritesIcon, HomeIcon, SettingIcon, TrendsIcon } from "src/assets/icons";
 import Header from "src/components/Header";
 import TabsList from "src/components/TabsList";
 import Footer from "src/components/Footer";
@@ -23,7 +23,7 @@ const PagesContainer = () => {
         () => [
             { type: TabTypes.Home, title: 'Home', icon: <HomeIcon />, disabled: false, link: RoutesList.Home, },
             { type: TabTypes.Trends, title: 'Trends', icon: <TrendsIcon />, disabled: false, link: RoutesList.Trends },
-            { type: TabTypes.Favourites, title: 'Favourites', icon: <FavoritesIcon />, disabled: false, link: RoutesList.Favourites },
+            { type: TabTypes.Favourites, title: 'Favourites', icon: <FavouritesIcon />, disabled: false, link: RoutesList.Favourites },
             { type: TabTypes.Settings, title: 'Settings', icon: <SettingIcon />, disabled: false, link: RoutesList.MySettings }
         ],
         [isLoggedIn]

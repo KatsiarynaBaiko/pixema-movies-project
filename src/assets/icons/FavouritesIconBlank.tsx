@@ -1,6 +1,6 @@
 import React from "react";
 
-export const FavoritesIconBlank = ({width="24", height="24", fill="#313037"}) => {
+export const FavouritesIconBlank = ({width="24", height="24", fill="#313037"}) => {
     return (
         <svg width={width}
         height={height}

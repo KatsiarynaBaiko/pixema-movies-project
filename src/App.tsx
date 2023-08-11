@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { TabTypes } from './@types';
-import { FavoritesIcon, HomeIcon, SettingIcon, TrendsIcon } from './assets/icons';
+import { FavouritesIcon, HomeIcon, SettingIcon, TrendsIcon } from './assets/icons';
 import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import Card from './components/Card';
@@ -132,7 +132,7 @@ const App = () => {
   const tabsList = [
     { key: TabTypes.Home, title: 'Home', icon: <HomeIcon />, disabled: false },
     { key: TabTypes.Trends, title: 'Trends', icon: <TrendsIcon />, disabled: false },
-    { key: TabTypes.Favourites, title: 'Favourites', icon: <FavoritesIcon />, disabled: true },
+    { key: TabTypes.Favourites, title: 'Favourites', icon: <FavouritesIcon />, disabled: false},
     { key: TabTypes.Settings, title: 'Settings', icon: <SettingIcon />, disabled: true }
   ]
   const [activeTab, setActiveTab] = useState(TabTypes.Home)

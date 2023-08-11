@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import { PostSelectors } from "src/redux/reducers/postSlice";
 import { Post } from "src/@types";
-import { AddFavoritesIcon, FavoritesIconBlank, TrendsIcon } from "src/assets/icons";
+import { AddFavouritesIcon, FavouritesIconBlank, TrendsIcon } from "src/assets/icons";
 
 import styles from './Card.module.scss'
 
@@ -54,7 +54,7 @@ const Card: FC<CardProps> = ({ card, classname, onSavedClick }) => {
                 ) : ''}
 
                 <div onClick={onSavedClick} className={styles.favouritesCard}> 
-                    {savedIndex > -1 ? <AddFavoritesIcon /> : <FavoritesIconBlank />}
+                    {savedIndex > -1 ? <AddFavouritesIcon /> : <FavouritesIconBlank />}
                 </div>
             </div>
 

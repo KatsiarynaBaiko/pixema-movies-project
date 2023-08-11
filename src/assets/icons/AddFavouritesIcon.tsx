@@ -1,6 +1,6 @@
 import React from "react";
 
-export const AddFavoritesIcon = ({ width = "24", height = "24", fill = "#7B61FF" }) => {
+export const AddFavouritesIcon = ({ width = "24", height = "24", fill = "#7B61FF" }) => {
     return (
         <svg
             width={width}
