@@ -23,7 +23,7 @@ const PagesContainer = () => {
         () => [
             { type: TabTypes.Home, title: 'Home', icon: <HomeIcon />, disabled: false, link: RoutesList.Home, },
             { type: TabTypes.Trends, title: 'Trends', icon: <TrendsIcon />, disabled: false, link: RoutesList.Trends },
-            { type: TabTypes.Favourites, title: 'Favourites', icon: <FavoritesIcon />, disabled: !isLoggedIn, link: RoutesList.Favourites },
+            { type: TabTypes.Favourites, title: 'Favourites', icon: <FavoritesIcon />, disabled: false, link: RoutesList.Favourites },
             { type: TabTypes.Settings, title: 'Settings', icon: <SettingIcon />, disabled: false, link: RoutesList.MySettings }
         ],
         [isLoggedIn]

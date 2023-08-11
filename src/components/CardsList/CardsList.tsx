@@ -2,11 +2,13 @@
 import React, { FC } from "react";
 
 import { Post, PostsList } from "src/@types";
+import { useDispatch } from "react-redux";
+
+import { setSavedStatus } from "src/redux/reducers/postSlice";
 
 import styles from './CardsList.module.scss';
 import Card from "../Card/Card";
-import { useDispatch } from "react-redux";
-import { setSavedStatus } from "src/redux/reducers/postSlice";
+
 
 
 type CardsListProps = {

@@ -1,12 +1,13 @@
 import React, { FC } from "react";
 import classNames from 'classnames';
+import { useSelector } from "react-redux";
 
+import { PostSelectors } from "src/redux/reducers/postSlice";
 import { Post } from "src/@types";
 import { AddFavoritesIcon, FavoritesIconBlank, TrendsIcon } from "src/assets/icons";
 
 import styles from './Card.module.scss'
-import { useSelector } from "react-redux";
-import { PostSelectors } from "src/redux/reducers/postSlice";
+
 
 
 type CardProps = {
