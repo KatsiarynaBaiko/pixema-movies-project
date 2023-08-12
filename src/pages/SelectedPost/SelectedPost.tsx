@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import classNames from "classnames";
-import { TrendsIcon } from "src/assets/icons";
+import { FavouritesIcon, TrendsIcon } from "src/assets/icons";
 
 import ButtonGroup from "src/components/ButtonGroup";
 

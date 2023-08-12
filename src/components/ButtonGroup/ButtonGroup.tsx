@@ -5,6 +5,9 @@ import { FavouritesIcon } from 'src/assets/icons';
 import { ShareIcon } from 'src/assets/icons';
 
 import styles from './ButtonGroup.module.scss'
+import { useDispatch } from 'react-redux';
+import { setSavedStatus } from 'src/redux/reducers/postSlice';
+import { Post } from 'src/@types';
 
 
 type ButtonGroupProps = {
@@ -16,7 +19,8 @@ type ButtonGroupProps = {
 
 // используем фрагмент ( <>...  </>) - это
 // пустой тег, когда нужно вставить куда-то группу элементов
-const ButtonGroup: FC<ButtonGroupProps> = ({ onClick, disabled, className }) => {
+const ButtonGroup: FC<ButtonGroupProps> = ({ onClick, disabled, className}) => {
+
     return (
         <>
             <div className={styles.buttonGroup}>
