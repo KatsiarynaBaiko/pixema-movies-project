@@ -7,11 +7,15 @@ import { RootState } from "../store";
 
 type InitialState = {
     savedPosts: PostsList;
+    postsList: PostsList;
 };
+
 
 const initialState: InitialState = {
     savedPosts: [],
+    postsList: [],
 };
+
 
 const postSlice = createSlice({
     name: "postReducer",
@@ -30,14 +34,24 @@ const postSlice = createSlice({
             } else
                 state.savedPosts.splice(savedIndex, 1)
         },
+
+        // getPostsList: (state, action: PayloadAction<undefined>) => { }
+        getPostsList: (_, __: PayloadAction<undefined>) => { },
+
+        setPostsList: (state, action: PayloadAction<PostsList>) => {
+            state.postsList = action.payload;
+        },
     },
 });
 
-export const { setSavedStatus,
+export const { 
+    setSavedStatus,
+    getPostsList, setPostsList,
 } = postSlice.actions;
 
 export const PostSelectors = {
     getSavedPosts: (state: RootState) => state.postReducer.savedPosts,
+    getPostsList: (state: RootState) => state.postReducer.postsList,
 };
 
 
