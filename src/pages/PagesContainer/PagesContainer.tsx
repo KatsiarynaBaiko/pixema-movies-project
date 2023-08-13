@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react"
 import classNames from "classnames";
 import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 
-import { TabTypes } from "src/@types";
+import { TabTypes, Theme } from "src/@types";
 import { FavouritesIcon, HomeIcon, SettingIcon, TrendsIcon } from "src/assets/icons";
 import Header from "src/components/Header";
 import TabsList from "src/components/TabsList";
@@ -10,6 +10,7 @@ import Footer from "src/components/Footer";
 
 import styles from './PagesContainer.module.scss';
 import { RoutesList } from "../Router";
+import { useThemeContext } from "src/context/Theme";
 
 // так вот Outlet - это все то, что внутри подменяется (наши странички условно)
 // react самостоятельно контролит, какой компонент (странички) нужно менять/подтягивать по пути
@@ -36,10 +37,13 @@ const PagesContainer = () => {
         }
     };
 
+    const { themeValue } = useThemeContext();
 
     return (
 
-        <div className={styles.container}>
+        
+
+        <div className={classNames(styles.container, {[styles.lightContainer] : themeValue === Theme.Light})}>
 
             <div className={styles.header}>
                 <Header />

@@ -143,7 +143,7 @@ const App = () => {
 
 
   //  ThemeProvider отслеживаем состояние и функция на изменение
-  const [themeValue, setThemeValue] = useState<Theme>(Theme.Dark);
+  const [themeValue, setThemeValue] = useState<Theme>(Theme.Light);
   const onChangeTheme = (value: Theme) => () => {
     setThemeValue(value);
   };

@@ -3,9 +3,9 @@ import { createContext, useContext } from "react";
 import { Theme } from "src/@types";
 
 
-// тема по умолчанию - Dark
+// тема по умолчанию - Light
 const initialValues = {
-    themeValue: Theme.Dark,
+    themeValue: Theme.Light,
     // onChangeTheme: (value: Theme) => {}
     onChangeTheme: (_: Theme) => () => {},
 }

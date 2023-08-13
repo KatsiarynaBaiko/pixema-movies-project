@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 
-import { Children } from "src/@types";
+import { Children, Theme } from "src/@types";
 
 import styles from './FormPagesContainer.module.scss';
 
@@ -8,6 +8,8 @@ import Title from "../Title";
 import Button, { ButtonTypes } from "../Button";
 import { PixemaLogoIcon } from "src/assets/icons";
 import Footer from "../Footer";
+import { useThemeContext } from "src/context/Theme";
+import classNames from "classnames";
 
 type FormPagesContainerProps = {
     title: string;
@@ -20,6 +22,8 @@ type FormPagesContainerProps = {
 
 // children - наполняемость контейнера соответсвующими инпутами
 const FormPagesContainer: FC<FormPagesContainerProps> = ({ title, children, btnTitle, onSubmit, additionalInfo, isSubmitDisabled, }) => {
+
+    const { themeValue } = useThemeContext();
 
     return (
         <div className={styles.container}>

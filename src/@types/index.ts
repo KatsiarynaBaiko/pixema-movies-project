@@ -64,7 +64,7 @@ export type Tab = {
 export type TabsListType = Tab[];
 
 
-// тема может быть 2 вариантов. Основная -   Dark
+// тема может быть 2 вариантов. Основная - Light
 export enum Theme {
     Dark = "dark",
     Light = "light",
