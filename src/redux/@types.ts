@@ -1,4 +1,4 @@
-import { PostsList } from "src/@types";
+import {FilmsListTypes, PostsList } from "src/@types";
 
 
 export type PostsResponseData = {
@@ -6,4 +6,12 @@ export type PostsResponseData = {
     next: string,
     entries: number,
     results: PostsList,
+}
+
+
+export type PostsData = {
+    page: number,
+    next: string,
+    entries: number,
+    results: FilmsListTypes,
 }

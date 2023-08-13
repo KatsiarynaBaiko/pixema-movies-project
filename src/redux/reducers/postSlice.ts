@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { Post, PostsList } from "src/@types";
+import { FilmsListTypes, Post, PostsList } from "src/@types";
 
 import { RootState } from "../store";
 
 
 type InitialState = {
     savedPosts: PostsList;
-    postsList: PostsList;
+    postsList: FilmsListTypes;
 };
 
 
@@ -35,11 +35,11 @@ const postSlice = createSlice({
                 state.savedPosts.splice(savedIndex, 1)
         },
 
-        getPostsList: (state, action: PayloadAction<undefined>) => { },
-        // getPostsList: (_, __: PayloadAction<undefined>) => { },
+        getPostsList: (_, __: PayloadAction<undefined>) => { },
+        // getPostsList: (state, action: PayloadAction<undefined>) => { },
 
-        setPostsList: (state, action: PayloadAction<PostsList>) => {
-            state.postsList = action.payload;
+        setPostsList: (state, action: PayloadAction<FilmsListTypes>) => {
+            state.postsList = action.payload
         },
     },
 });
@@ -52,6 +52,7 @@ export const {
 export const PostSelectors = {
     getSavedPosts: (state: RootState) => state.postReducer.savedPosts,
     getPostsList: (state: RootState) => state.postReducer.postsList,
+
 };
 
 

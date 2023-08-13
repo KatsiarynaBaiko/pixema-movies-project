@@ -14,8 +14,8 @@ const Favourites = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.comingSoon}>Favourites: Coming soon ...</div>
-            <CardsList cardsList={savedPosts}/>
+            {/* <div className={styles.comingSoon}>Favourites: Coming soon ...</div>
+            <CardsList cardsList={savedPosts}/> */}
         </div>
     )
 }
