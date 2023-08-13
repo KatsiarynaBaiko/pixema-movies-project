@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { TabTypes } from './@types';
+import { TabTypes, Theme } from './@types';
 import { FavouritesIcon, HomeIcon, SettingIcon, TrendsIcon } from './assets/icons';
 import Button, { ButtonTypes } from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
@@ -13,6 +13,7 @@ import Tab from './components/Tab';
 import TabsList from './components/TabsList';
 import Title from './components/Title';
 import Username from './components/Username';
+import { ThemeProvider } from './context/Theme';
 import Home from './pages/Home';
 import PagesContainer from './pages/PagesContainer';
 import Router from './pages/Router';
@@ -132,7 +133,7 @@ const App = () => {
   const tabsList = [
     { key: TabTypes.Home, title: 'Home', icon: <HomeIcon />, disabled: false },
     { key: TabTypes.Trends, title: 'Trends', icon: <TrendsIcon />, disabled: false },
-    { key: TabTypes.Favourites, title: 'Favourites', icon: <FavouritesIcon />, disabled: false},
+    { key: TabTypes.Favourites, title: 'Favourites', icon: <FavouritesIcon />, disabled: false },
     { key: TabTypes.Settings, title: 'Settings', icon: <SettingIcon />, disabled: true }
   ]
   const [activeTab, setActiveTab] = useState(TabTypes.Home)
@@ -140,6 +141,12 @@ const App = () => {
     return () => setActiveTab(tab)
   }
 
+
+  //  ThemeProvider отслеживаем состояние и функция на изменение
+  const [themeValue, setThemeValue] = useState<Theme>(Theme.Dark);
+  const onChangeTheme = (value: Theme) => () => {
+    setThemeValue(value);
+  };
 
   return (
     <div>
@@ -239,7 +246,9 @@ const App = () => {
 
       {/* <Home /> */}
 
-      <Router />
+      <ThemeProvider themeValue={themeValue} onChangeTheme={onChangeTheme}>
+        <Router />
+      </ThemeProvider>
 
       {/* <SelectedPost
         poster={'https://gamerwall.pro/uploads/posts/2022-02/1645708691_1-gamerwall-pro-p-astronavt-v-kosmose-krasivie-oboi-1.jpg'}

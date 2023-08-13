@@ -1,7 +1,9 @@
 import { ReactElement } from "react";
 
+
 // для FormPagesContainerProps
 export type Children = ReactElement | ReactElement[];
+
 
 // типизация нашей Card 
 // то есть данные о фильме 
@@ -34,9 +36,11 @@ export type Post = {
     vote_count?: number;
 };
 
+
 // массив наших постов (карточек c фильмами)
 // первый апишник
 export type PostsList = Post[]
+
 
 // enum, так как у нас несколько свойств Tab
 export enum TabTypes {
@@ -46,6 +50,7 @@ export enum TabTypes {
     Settings = 'settings'
 }
 
+
 // наша табина + у нее может быть иконка
 export type Tab = {
     key: TabTypes;
@@ -54,10 +59,16 @@ export type Tab = {
     icon?: ReactElement;
 };
 
+
 // массив наших Табин
 export type TabsListType = Tab[];
 
 
+// тема может быть 2 вариантов. Основная -   Dark
+export enum Theme {
+    Dark = "dark",
+    Light = "light",
+  }
 
 
 // -----
