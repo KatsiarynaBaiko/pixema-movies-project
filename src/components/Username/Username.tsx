@@ -1,4 +1,8 @@
 import React, { FC } from "react";
+import classNames from "classnames";
+
+import { Theme } from "src/@types";
+import { useThemeContext } from "src/context/Theme";
 
 import styles from './Username.module.scss';
 
@@ -12,6 +16,8 @@ type UsernameProps = {
 // нужна проверка, если нет Username
 
 const Username: FC<UsernameProps> = ({ username }) => {
+    
+    const { themeValue } = useThemeContext();
 
     if (!username) {
         return null
@@ -20,7 +26,7 @@ const Username: FC<UsernameProps> = ({ username }) => {
     return (
         <div className={styles.container}>
             <div className={styles.initials}>{username[0]}</div>
-            <div className={styles.username}>{username}</div>
+            <div className={classNames(styles.username, {[styles.lightUsername] : themeValue === Theme.Light})}>{username}</div>
         </div>
     )
 }

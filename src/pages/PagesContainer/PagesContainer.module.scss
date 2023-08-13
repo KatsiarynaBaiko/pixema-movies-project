@@ -110,6 +110,16 @@
     }
 }
 
-.lightContainer{
+.lightContainer {
     background-color: $white;
-  }
+}
+
+.lightTab {
+    &:hover {
+        color: $primary;
+
+        svg>path {
+            fill: $primary;
+        }
+    }
+}

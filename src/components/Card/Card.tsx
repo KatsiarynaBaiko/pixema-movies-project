@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import { useSelector } from "react-redux";
 
 import { PostSelectors } from "src/redux/reducers/postSlice";
-import { Post } from "src/@types";
+import { Post, Theme } from "src/@types";
 import { AddFavouritesIcon, FavouritesIconBlank, TrendsIcon } from "src/assets/icons";
+import { useThemeContext } from "src/context/Theme";
 
 import styles from './Card.module.scss'
 
@@ -22,6 +23,8 @@ type CardProps = {
 
 //первый апишник
 const Card: FC<CardProps> = ({ card, classname, onSavedClick }) => {
+
+    const { themeValue } = useThemeContext();
 
     const savedPosts = useSelector(PostSelectors.getSavedPosts);
     const savedIndex = savedPosts.findIndex((item) => item.id === card.id);
@@ -54,13 +57,12 @@ const Card: FC<CardProps> = ({ card, classname, onSavedClick }) => {
                         {card.rating}
                     </div>
                 ) : ''}
-
-                <div onClick={onSavedClick} className={styles.favouritesCard}> 
+                <div onClick={onSavedClick} className={classNames(styles.favouritesCard, {[styles.lightFavouritesCard] : themeValue === Theme.Light})}> 
                     {savedIndex > -1 ? <AddFavouritesIcon /> : <FavouritesIconBlank />}
                 </div>
             </div>
 
-            <div className={styles.name}>{card.name}</div>
+            <div className={classNames(styles.name, {[styles.lightName] : themeValue === Theme.Light})}>{card.name}</div>
             <div className={styles.genre}>{card.genre}</div>
 
         </div>

@@ -1,24 +1,26 @@
 import React, { useState } from "react"
 import classNames from "classnames";
 
-import { PixemaLogoIcon, SearchIcon } from "src/assets/icons";
+import { useThemeContext } from "src/context/Theme";
+import { PixemaLogoIcon, PixemaLogoLightIcon, SearchIcon } from "src/assets/icons";
 
 import styles from './Header.module.scss';
 import Button, { ButtonTypes } from "../Button";
 import Input from "../Input";
 import Username from "../Username";
-
+import { Theme } from "src/@types";
 
 
 // отслеживаем есостояние интпута => используем useState
 const Header = () => {
+    const { themeValue } = useThemeContext();
 
     const [inputValue, setInputValue] = useState('');
 
     return (
         <div className={styles.header}>
 
-            <div className={styles.pixemaLogo}>
+            <div className={classNames(styles.pixemaLogo, { [styles.lightPixemaLogo]: themeValue === Theme.Light })}>
                 <PixemaLogoIcon />
             </div>
 

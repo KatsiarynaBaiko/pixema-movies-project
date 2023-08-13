@@ -33,8 +33,6 @@
   background-color: $dark;
   box-sizing: border-box;
   border-radius: 10px;
-
-
 }
 
 .fieldsContainer {
@@ -61,3 +59,7 @@
 //   align-items: flex-end;
 
 // }
+
+.lightFormContainer {
+  background-color: $white;
+}

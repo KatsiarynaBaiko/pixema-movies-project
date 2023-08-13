@@ -5,11 +5,11 @@
   flex-direction: column;
 }
 
-.buttonSun, 
+.buttonSun,
 .buttonMoon {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  // align-items: center;
   justify-content: space-between;
   width: 400px;
   background-color: $graphite;
@@ -18,12 +18,12 @@
 }
 
 .title {
-  color: $light;
+  color: $secondary;
   font-family: 'Exo 2';
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; 
+  line-height: 24px;
 }
 
 
@@ -46,4 +46,10 @@
   svg>path {
     fill: $primary;
   }
+}
+
+.lightButtonSun,
+.lightButtonMoon {
+  background-color: $white;
+  border: 2px solid $primary-secondary;
 }

@@ -29,7 +29,7 @@ const FormPagesContainer: FC<FormPagesContainerProps> = ({ title, children, btnT
         <div className={styles.container}>
             <div className={styles.pixemaLogo}> <PixemaLogoIcon /> </div>
             <div className={styles.formContainerCenter}>
-                <div className={styles.formContainer}>
+                <div className={classNames(styles.formContainer, { [styles.lightFormContainer]: themeValue === Theme.Light })}>
                     <Title title={title} />
                     <div className={styles.fieldsContainer}>{children}</div>
                     <Button

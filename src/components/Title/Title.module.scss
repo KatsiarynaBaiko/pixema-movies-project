@@ -1,11 +1,15 @@
 @import "src/styles/colors";
 
 .title {
-    // color: $dark;
+
     color: $white;
     font-family: 'Exo 2';
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: 36px;
+}
+
+.lightTitle {
+    color: $dark;
 }

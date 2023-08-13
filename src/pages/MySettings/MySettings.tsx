@@ -12,8 +12,6 @@ import Title from "src/components/Title";
 
 const MySettings = () => {
 
-    const { themeValue, onChangeTheme } = useThemeContext();
-
     return (
         <div className={styles.container}>
 

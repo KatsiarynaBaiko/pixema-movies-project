@@ -1,7 +1,11 @@
 import React, { FC } from 'react'
 import classNames from 'classnames';
 
+import { useThemeContext } from 'src/context/Theme';
+import { Theme } from 'src/@types';
+
 import styles from './Title.module.scss'
+
 
 
 type TitleProps = {
@@ -11,7 +15,9 @@ type TitleProps = {
 
 const Title: FC<TitleProps> = ({ title, className }) => {
 
-    return <div className={styles.title}>{title}</div>
+    const { themeValue } = useThemeContext();
+
+    return <div className={classNames(styles.title, {[styles.lightTitle] : themeValue === Theme.Light})}>{title}</div>
     
 }
 

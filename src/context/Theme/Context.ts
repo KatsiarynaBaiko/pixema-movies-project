@@ -5,7 +5,7 @@ import { Theme } from "src/@types";
 
 // тема по умолчанию - Light
 const initialValues = {
-    themeValue: Theme.Light,
+    themeValue: Theme.Dark,
     // onChangeTheme: (value: Theme) => {}
     onChangeTheme: (_: Theme) => () => {},
 }

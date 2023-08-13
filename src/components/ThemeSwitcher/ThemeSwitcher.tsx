@@ -14,22 +14,26 @@ type ThemeSwitcherProps = {
 }
 
 const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ titleSun, titleMoon }) => {
+
     const { themeValue, onChangeTheme } = useThemeContext();
 
     return (
 
         <div className={styles.container}>
-            <div className={styles.buttonSun}>
+            <div className={classNames(styles.buttonSun, {[styles.lightButtonSun] : themeValue === Theme.Light})}>
                 <div className={styles.title}>{titleSun}</div>
                 <div className={classNames(styles.button,
-                    { [styles.activeButton]: themeValue === Theme.Light })}
+                    {
+                        [styles.activeButton]: themeValue === Theme.Light,
+                        [styles.lightButton]: themeValue === Theme.Light
+                    })}
                     onClick={onChangeTheme(Theme.Light)}
                 >
                     <SunIcon />
                 </div>
             </div>
 
-            <div className={styles.buttonMoon}>
+            <div className={classNames(styles.buttonMoon, {[styles.lightButtonMoon] : themeValue === Theme.Light})}>
                 <div className={styles.title}>{titleMoon}</div>
                 <div className={classNames(styles.button,
                     { [styles.activeButton]: themeValue === Theme.Dark })}

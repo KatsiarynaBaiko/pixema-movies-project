@@ -63,6 +63,7 @@ const PagesContainer = () => {
                                 className={classNames(styles.tab, {
                                     [styles.activeTab]: pathname === link,
                                     [styles.disabledTab]: disabled === !isLoggedIn,
+                                    [styles.lightTab]: themeValue === Theme.Light
                                     
                                 })}
                             >
