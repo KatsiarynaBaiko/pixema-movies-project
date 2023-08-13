@@ -10,6 +10,7 @@ import styles from './Card.module.scss'
 
 
 
+// первый апишник
 type CardProps = {
     card: Post;
     classname?: string;
@@ -19,6 +20,7 @@ type CardProps = {
 // у нас может не быть постера => проверяем через условный рендеринг
 // также может не быть рейтинга => проверяем через условный рендеринг
 
+//первый апишник
 const Card: FC<CardProps> = ({ card, classname, onSavedClick }) => {
 
     const savedPosts = useSelector(PostSelectors.getSavedPosts);
@@ -64,5 +66,56 @@ const Card: FC<CardProps> = ({ card, classname, onSavedClick }) => {
         </div>
     )
 }
+
+
+//второй апишник
+// const Card: FC<CardProps> = ({ id, primaryImage, classname, titleText, onSavedClick }) => {
+
+    // const savedPosts = useSelector(PostSelectors.getSavedPosts);
+    // const savedIndex = savedPosts.findIndex((item) => item.id === id);
+
+//     return (
+
+
+//         <div className={styles.cardContainer}>
+
+//             <div className={styles.cardPosterContent}>
+
+//                 {primaryImage ? (
+//                     <div className={styles.poster}>
+//                         {primaryImage.map((primaryImage, index) => {
+//                             return (
+//                                 <div key={index} className={styles.poster}>
+//                                     {primaryImage.url}
+//                                 </div>
+//                             );
+//                         })}
+//                     </div>
+//                 ) : (
+//                     // <div className={styles.noPoster}>Sorry...No poster...</div>
+//                     <div> <img src='https://gitu.net/gituimg/free-psd-mockups-download/Free-Pop-Corn-Box-Packaging-Mockup-PSD-Set-2.jpg' alt='Sorry...No poster..' className={styles.poster} /> </div>
+
+//                 )}
+
+//                 {/* <div onClick={onSavedClick} className={styles.favouritesCard}>
+//                     {savedIndex > -1 ? <AddFavouritesIcon /> : <FavouritesIconBlank />}
+//                 </div> */}
+//                 <div className={styles.favouritesCard}>
+//                     {<FavouritesIconBlank />}
+//                 </div>
+//             </div>
+
+//             <div className={styles.name}>
+//                 {titleText.map((titleText, index) => {
+//                     return (
+//                         <div key={index} className={styles.name}>
+//                             {titleText.text}
+//                         </div>
+//                     );
+//                 })}
+//             </div>
+//         </div>
+//     )
+// }
 
 export default Card

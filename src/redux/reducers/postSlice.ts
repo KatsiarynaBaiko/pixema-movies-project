@@ -35,8 +35,8 @@ const postSlice = createSlice({
                 state.savedPosts.splice(savedIndex, 1)
         },
 
-        // getPostsList: (state, action: PayloadAction<undefined>) => { }
-        getPostsList: (_, __: PayloadAction<undefined>) => { },
+        getPostsList: (state, action: PayloadAction<undefined>) => { },
+        // getPostsList: (_, __: PayloadAction<undefined>) => { },
 
         setPostsList: (state, action: PayloadAction<PostsList>) => {
             state.postsList = action.payload;

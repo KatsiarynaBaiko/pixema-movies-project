@@ -14,7 +14,7 @@ function* postsSagaWorker() {
   if (response.ok && response.data) {
     yield put(setPostsList(response.data.results))
   } else {
-    console.error("Set PostsList error", response.problem);
+    console.error("Set PostsList error!!", response.problem);
   }
 }
 

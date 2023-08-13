@@ -5,9 +5,6 @@ import { FavouritesIcon } from 'src/assets/icons';
 import { ShareIcon } from 'src/assets/icons';
 
 import styles from './ButtonGroup.module.scss'
-import { useDispatch } from 'react-redux';
-import { setSavedStatus } from 'src/redux/reducers/postSlice';
-import { Post } from 'src/@types';
 
 
 type ButtonGroupProps = {
