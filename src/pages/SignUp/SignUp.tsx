@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PixemaLogoIcon } from "src/assets/icons";
 
 import FormPagesContainer from "src/components/FormPagesContainer";
 import Input from "src/components/Input";
 
+import { RoutesList } from "../Router";
 import styles from './SignUp.module.scss'
 
 
@@ -14,15 +16,22 @@ const SignUp = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    
+    const navigate = useNavigate();
+    const onClickToSignIn = () => {
+        navigate(RoutesList.SignIn);
+    };
+
 
     return (
 
+        
         <FormPagesContainer
             title={'Sign Up'}
             btnTitle={'Sign Up'}
             onSubmit={() => { }}
             additionalInfo={
-                <div className={styles.additionalInfo}>
+                <div className={styles.additionalInfo} onClick={onClickToSignIn}>
                     {'Already have an account?'}
                     <span className={styles.signIn}>Sign In</span>
                 </div>
