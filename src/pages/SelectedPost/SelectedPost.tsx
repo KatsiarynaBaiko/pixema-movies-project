@@ -3,9 +3,11 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
 
-import { AddFavouritesIcon, FavouritesIcon, FavouritesIconBlank, ShareIcon, TrendsIcon } from "src/assets/icons";
+import { TrendsIcon } from "src/assets/icons";
 import ButtonGroup from "src/components/ButtonGroup";
 import { getSinglePost, PostSelectors } from "src/redux/reducers/postSlice";
+import { useThemeContext } from "src/context/Theme";
+import { Theme } from "src/@types";
 
 import styles from './SelectedPost.module.scss';
 
@@ -110,6 +112,8 @@ import styles from './SelectedPost.module.scss';
 // второй апишник
 const SelectedPost = () => {
 
+    const { themeValue } = useThemeContext();
+
     // достаем id с помощью  useParams ()
     const { id } = useParams();
 
@@ -142,24 +146,23 @@ const SelectedPost = () => {
 
             <div className={styles.singleMovieInfo}>
 
-                <div className={styles.genre}>{'Histore movies'}</div>
-                <div className={classNames(styles.name, {})}>{singlePost?.titleText?.text}</div>
+                <div className={styles.genre}>{'History movies'}</div>
+                <div className={classNames(styles.name, {[styles.lightTitle] : themeValue === Theme.Light})}>{singlePost?.titleText?.text}</div>
 
                 <div className={styles.ratingContainer}>
 
                     <div className={classNames(styles.rating, {})}>
-                        {'9'}
-                        <TrendsIcon />
+                        <div className={styles.ratingScore}>{'9'} <TrendsIcon /> </div>
+                        <div className={classNames(styles.imdb_id, {[styles.lightImdb_id] : themeValue === Theme.Light})}>{'IMDb 7.6'}</div>
+                        <div className={classNames(styles.runtime, {[styles.lightRuntime] : themeValue === Theme.Light})}>{'130 min'}</div>
                     </div>
-
-                    <div className={styles.imdb_id}>{'IMDb 7.6'}</div>
-                    <div className={styles.runtime}>{'130 min'}</div>
                 </div>
 
-                <div className={styles.description}>{'In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord.'}</div>
+                
+                <div className={classNames(styles.description, {[styles.lightDescription] : themeValue === Theme.Light})}>{'In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord.'}</div>
 
                 <div className={styles.descriptionInfo}>
-                    <ul className={styles.descriptionInfoLeft}>
+                    <ul className={classNames(styles.descriptionInfoLeft, {[styles.lightDescriptionInfoLeft] : themeValue === Theme.Light})}>
                         <li>Year</li>
                         <li>Released</li>
                         <li>BoxOffice</li>
@@ -168,8 +171,8 @@ const SelectedPost = () => {
                         <li>Actors</li>
                         <li>Director</li>
                         <li>Writers</li>
-                    </ul>
-                    <ul className={styles.descriptionInfoRight}>
+                    </ul> 
+                    <ul className={classNames(styles.descriptionInfoRight, {[styles.lightDescriptionInfoRight] : themeValue === Theme.Light})}>
                         <li>{'2011'}</li>
                         <li>{'15 Jul 2011'}</li>
                         <li>{'$381,409,310'}</li>

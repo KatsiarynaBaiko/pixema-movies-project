@@ -74,3 +74,16 @@
     }
     
 }
+
+.lightButton {
+    background-color: $secondary;
+    
+    svg>path {
+        fill: $light;
+        stroke: $light;
+    }
+
+    svg>circle {
+        stroke: $light;
+    }
+}
