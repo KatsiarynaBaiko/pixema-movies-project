@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { TabTypes, Theme } from './@types';
 import { FavouritesIcon, HomeIcon, SettingIcon, TrendsIcon } from './assets/icons';
@@ -20,6 +21,7 @@ import Router from './pages/Router';
 import SelectedPost from './pages/SelectedPost';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import { setThemeValue, ThemeSelectors } from './redux/reducers/themeSlice';
 
 
 
@@ -143,10 +145,18 @@ const App = () => {
 
 
   //  ThemeProvider отслеживаем состояние и функция на изменение
-  const [themeValue, setThemeValue] = useState<Theme>(Theme.Light);
+  // const [themeValue, setThemeValue] = useState<Theme>(Theme.Dark);
+  // const onChangeTheme = (value: Theme) => () => {
+  //   setThemeValue(value);
+  // };
+  // перенос темы в редакс:
+  const dispatch = useDispatch();
   const onChangeTheme = (value: Theme) => () => {
-    setThemeValue(value);
+    dispatch(setThemeValue(value));
   };
+  const themeValue = useSelector(ThemeSelectors.getThemeValue);
+  
+
 
   return (
     <div>
