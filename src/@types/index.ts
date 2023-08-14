@@ -77,7 +77,7 @@ export enum Theme {
 export type FilmTypes = {
     _id: string,
     id: string,
-    
+
     primaryImage: {
         id: string,
         width: number,
@@ -119,7 +119,9 @@ export type FilmTypes = {
         month: number
         year: number
         __typename: string
-    }
+    },
+    classname?: string;
+    onSavedClick?: () => void;
 }
 
 // массив наших постов (карточек c фильмами)

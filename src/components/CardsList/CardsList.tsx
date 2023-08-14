@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import { useDispatch } from "react-redux";
 
-import { FilmsListTypes, Post, PostsList } from "src/@types";
+import { FilmsListTypes, FilmTypes, Post, PostsList } from "src/@types";
 import { setSavedStatus } from "src/redux/reducers/postSlice";
 
 import styles from './CardsList.module.scss';
@@ -49,6 +49,12 @@ type CardsListProps = {
 }
 const CardsList: FC<CardsListProps> = ({ cardsList }) => {
 
+    const dispatch = useDispatch();
+
+    const onSavedClick = (card: FilmTypes) => () => {
+        dispatch(setSavedStatus({ card }))
+    }
+
     return cardsList.length ? (
         <div className={styles.container}>
 
@@ -57,7 +63,7 @@ const CardsList: FC<CardsListProps> = ({ cardsList }) => {
                 return <Card
                     key={el.id}
                     {...el}
-
+                    onSavedClick={onSavedClick(el)}
                 />
             })
             }

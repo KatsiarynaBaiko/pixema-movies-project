@@ -72,9 +72,12 @@ import styles from './Card.module.scss'
 
 
 //второй апишник
-const Card: FC<FilmTypes> = ({ id, titleText, primaryImage }) => {
+const Card: FC<FilmTypes> = ({ id, titleText, primaryImage, onSavedClick }) => {
 
     const { themeValue } = useThemeContext();
+
+    const savedPosts = useSelector(PostSelectors.getSavedPosts);
+    const savedIndex = savedPosts.findIndex((item) => item.id === id);
 
     return (
 
@@ -85,9 +88,8 @@ const Card: FC<FilmTypes> = ({ id, titleText, primaryImage }) => {
                 ) : (
                     <div> <img src='https://gitu.net/gituimg/free-psd-mockups-download/Free-Pop-Corn-Box-Packaging-Mockup-PSD-Set-2.jpg' alt='Sorry...No poster..' className={styles.poster} /> </div>
                 )}
-
-                <div className={classNames(styles.favouritesCard, { [styles.lightFavouritesCard]: themeValue === Theme.Light })}>
-                    <FavouritesIconBlank />
+                <div onClick={onSavedClick} className={classNames(styles.favouritesCard, { [styles.lightFavouritesCard]: themeValue === Theme.Light })}>
+                    {savedIndex > -1 ? <AddFavouritesIcon /> : <FavouritesIconBlank />}
                 </div>
             </div>
             <div className={classNames(styles.name, { [styles.lightName]: themeValue === Theme.Light })}>{titleText.text}</div>
