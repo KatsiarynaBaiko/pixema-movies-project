@@ -10,6 +10,7 @@ import { create } from "apisauce";
 // const API = create({
 //     baseURL: 'https://example.p.rapidapi.com?rapidapi-key=f35c5038cfmsh623b39fb492d764p1ae170jsn5f306caa8d6d',
 // });
+// а ниже работает :)
 
 const API = create({
     baseURL: 'https://moviesdatabase.p.rapidapi.com',
@@ -17,7 +18,6 @@ const API = create({
         'X-RapidAPI-Key': 'f35c5038cfmsh623b39fb492d764p1ae170jsn5f306caa8d6d',
         'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
     }
-
 });
 
 const getPosts = () => {
@@ -25,8 +25,12 @@ const getPosts = () => {
     return API.get("/titles");
 };
 
+const getSinglePost = (id: string) => {
+    return API.get(`/titles/${id}/`);
+};
 
 
 export default {
     getPosts,
+    getSinglePost,
 };

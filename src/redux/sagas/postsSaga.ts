@@ -1,10 +1,12 @@
 import { ApiResponse } from "apisauce";
 import API from "src/utils/api";
 import { all, call, put, takeLatest } from "redux-saga/effects";
+import { PayloadAction } from "@reduxjs/toolkit";
 
-import { getPostsList, setPostsList } from "../reducers/postSlice";
-import { PostsData } from "../@types";
+import { FilmTypes } from "src/@types";
 
+import { getPostsList, getSinglePost, setPostsList, setSinglePost } from "../reducers/postSlice";
+import { PostsResponseData, SelectedFilmsResponseData } from "../@types";
 
 
 // function* postsSagaWorker() {
@@ -19,27 +21,46 @@ import { PostsData } from "../@types";
 // }
 
 function* postsSagaWorker() {
- 
-  const response: ApiResponse<PostsData | null> = yield call(
-      
+
+  const response: ApiResponse<PostsResponseData | null> = yield call(
+
     API.getPosts,
   )
   if (response.data) {
-      if (response.data) {
-          yield put(setPostsList(response.data.results))
+    if (response.data) {
+      yield put(setPostsList(response.data.results))
 
 
-      } else {
-          console.error('Get Posts List Error', response.problem);
-      }
-
+    } else {
+      console.error('Get Posts List error', response.problem);
+    }
   }
+}
 
+
+function* getSinglePostWorker(action: PayloadAction<string>) {
+
+  const id = action.payload;
+  // const response: ApiResponse<FilmTypes> = yield call(    
+  const response: ApiResponse<SelectedFilmsResponseData> = yield call(
+
+    API.getSinglePost,
+    // action.payload
+    id
+  );
+  if (response.ok && response.data) {
+    // yield put(setSinglePost(response.data));
+    yield put(setSinglePost(response.data.results));
+
+  } else {
+    console.error('Get Single Posts List error', response.problem);
+  }
 }
 
 // маленький вотчер, связываем его с rootSaga
 export default function* postsSagaWatcher() {
-    yield all([
-      takeLatest(getPostsList, postsSagaWorker),
-    ]);
-  }
+  yield all([
+    takeLatest(getPostsList, postsSagaWorker),
+    takeLatest(getSinglePost, getSinglePostWorker),
+  ]);
+}

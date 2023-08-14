@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import classNames from 'classnames';
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { PostSelectors } from "src/redux/reducers/postSlice";
 import { FilmTypes, Post, Theme } from "src/@types";
@@ -8,7 +9,6 @@ import { AddFavouritesIcon, FavouritesIconBlank, TrendsIcon } from "src/assets/i
 import { useThemeContext } from "src/context/Theme";
 
 import styles from './Card.module.scss'
-
 
 
 // первый апишник
@@ -79,6 +79,15 @@ const Card: FC<FilmTypes> = ({ id, titleText, primaryImage, onSavedClick }) => {
     const savedPosts = useSelector(PostSelectors.getSavedPosts);
     const savedIndex = savedPosts.findIndex((item) => item.id === id);
 
+
+    // переход на посты по клику 
+    // используется useNavigate и связывается с id
+    const navigate = useNavigate();
+
+    const onTitleClick = () => {
+        navigate(`/titles/${id}/`);
+    };
+
     return (
 
         <div className={styles.cardContainer}>
@@ -92,7 +101,7 @@ const Card: FC<FilmTypes> = ({ id, titleText, primaryImage, onSavedClick }) => {
                     {savedIndex > -1 ? <AddFavouritesIcon /> : <FavouritesIconBlank />}
                 </div>
             </div>
-            <div className={classNames(styles.name, { [styles.lightName]: themeValue === Theme.Light })}>{titleText.text}</div>
+            <div onClick={onTitleClick} className={classNames(styles.name, { [styles.lightName]: themeValue === Theme.Light })}>{titleText.text}</div>
             <div className={styles.genre}>History movie</div>
         </div>
 

@@ -9,12 +9,14 @@ type InitialState = {
     // savedPosts: PostsList;
     postsList: FilmsListTypes;
     savedPosts: FilmsListTypes;
+    singlePost: FilmTypes | null;
 };
 
 
 const initialState: InitialState = {
     postsList: [],
     savedPosts: [],
+    singlePost: null,
 };
 
 
@@ -55,17 +57,26 @@ const postSlice = createSlice({
             } else
                 state.savedPosts.splice(savedIndex, 1)
         },
+
+        getSinglePost: (_, __: PayloadAction<string>) => { },
+
+        setSinglePost: (state, action: PayloadAction<FilmTypes | null>) => {
+            state.singlePost = action.payload;
+        },
+
     },
 });
 
 export const {
     getPostsList, setPostsList,
     setSavedStatus,
+    getSinglePost, setSinglePost,
 } = postSlice.actions;
 
 export const PostSelectors = {
     getPostsList: (state: RootState) => state.postReducer.postsList,
     getSavedPosts: (state: RootState) => state.postReducer.savedPosts,
+    getSinglePost: (state: RootState) => state.postReducer.singlePost,
 };
 
 

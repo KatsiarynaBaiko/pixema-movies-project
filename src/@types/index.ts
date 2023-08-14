@@ -127,3 +127,4 @@ export type FilmTypes = {
 // массив наших постов (карточек c фильмами)
 // второй апишник (moviesdatabase.p.rapidapi)
 export type FilmsListTypes = FilmTypes[];
+

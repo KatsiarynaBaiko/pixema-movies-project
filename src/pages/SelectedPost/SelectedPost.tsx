@@ -1,10 +1,14 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
-import { FavouritesIcon, TrendsIcon } from "src/assets/icons";
 
+import { AddFavouritesIcon, FavouritesIcon, FavouritesIconBlank, ShareIcon, TrendsIcon } from "src/assets/icons";
 import ButtonGroup from "src/components/ButtonGroup";
+import { getSinglePost, PostSelectors } from "src/redux/reducers/postSlice";
 
 import styles from './SelectedPost.module.scss';
+
 
 // первый апишник
 // type SelectedPostProps = {
@@ -106,16 +110,31 @@ import styles from './SelectedPost.module.scss';
 // второй апишник
 const SelectedPost = () => {
 
+    // достаем id с помощью  useParams ()
+    const { id } = useParams();
+
+    const dispatch = useDispatch();
+
+    const singlePost = useSelector(PostSelectors.getSinglePost);
+
+    useEffect(() => {
+        if (id) {
+            dispatch(getSinglePost(id));
+        }
+    }, [id]);
+
+
+
     return (
         <div className={styles.container}>
 
             <div className={styles.containerLeft}>
                 <div className={styles.singleMoviePoster}>
-                    {/* {primaryImage?.url ? (
-                        <div> <img src={primaryImage?.url} alt={titleText.text} className={styles.poster} /> </div>
+                    {singlePost?.primaryImage?.url ? (
+                        <div> <img src={singlePost?.primaryImage?.url} alt={singlePost?.titleText?.text} className={styles.poster} /> </div>
                     ) : (
                         <div> <img src='https://gitu.net/gituimg/free-psd-mockups-download/Free-Pop-Corn-Box-Packaging-Mockup-PSD-Set-2.jpg' alt='Sorry...No poster..' className={styles.poster} /> </div>
-                    )} */}
+                    )}
                 </div>
                 <ButtonGroup />
             </div>
@@ -124,12 +143,12 @@ const SelectedPost = () => {
             <div className={styles.singleMovieInfo}>
 
                 <div className={styles.genre}>{'Histore movies'}</div>
-                {/* <div className={classNames(styles.name, { })}>{titleText.text}</div> */}
+                <div className={classNames(styles.name, {})}>{singlePost?.titleText?.text}</div>
 
                 <div className={styles.ratingContainer}>
 
                     <div className={classNames(styles.rating, {})}>
-                        {'7'}
+                        {'9'}
                         <TrendsIcon />
                     </div>
 

@@ -165,3 +165,81 @@ ul {
 .favourites {
     // background-color: $white;
 }
+
+
+// -------
+
+.buttonGroup {
+    gap: 1px;
+    max-width: 266px;
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    background-color: $graphite;
+    width: 50%;
+    padding: 16px 55px;
+    border-radius: 10px;
+    transition: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg>path {
+        fill: $light;
+        stroke: $light;
+    }
+
+    svg>circle {
+        stroke: $light;
+    }
+
+    &:hover {
+        cursor: pointer;
+        
+        svg>path {
+            fill: $white;
+            stroke: $white;
+        }
+    
+        svg>circle {
+            stroke: $white;
+        }
+    }
+}
+
+.rightButton {
+    border-radius: 10px 0px 0px 10px;
+}
+
+.leftButton {
+    border-radius: 0px 10px 10px 0px;
+}
+
+.disabled {
+    color: $light;
+    background-color: $secondary;
+
+    svg>path {
+        fill: $light;
+        stroke: $light;
+    }
+
+    svg>circle {
+        stroke: $light;
+    }
+
+    &:hover {
+        cursor: not-allowed; // чтобы нельзя было тыкнуть
+        svg>path {
+            fill: $light;
+            stroke: $light;
+        }
+    
+        svg>circle {
+            stroke: $light;
+        }
+    }
+    
+}
