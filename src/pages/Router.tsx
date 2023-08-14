@@ -39,7 +39,7 @@ const Router = () => {
         <Routes>
             <Route path={RoutesList.Home} element={<PagesContainer />}>
                 <Route path={RoutesList.Home} element={<Home />} />
-                {/* <Route path={RoutesList.SelectedPost} element={<SelectedPost />} /> */}
+                <Route path={RoutesList.SelectedPost} element={<SelectedPost />} />
                 <Route path={RoutesList.Favourites} element={<Favourites />} />
                 <Route path={RoutesList.Trends} element={<Trends />} />
                 <Route path={RoutesList.MySettings} element={<MySettings />} />
