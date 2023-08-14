@@ -4,18 +4,21 @@ import { useSelector } from "react-redux";
 
 import { PostSelectors } from "src/redux/reducers/postSlice";
 import CardsList from "src/components/CardsList";
+import { useThemeContext } from "src/context/Theme";
+import { Theme } from "src/@types";
 
 import styles from './Favourites.module.scss';
 
-
 const Favourites = () => {
+
+    const { themeValue } = useThemeContext();
 
     const savedPosts = useSelector(PostSelectors.getSavedPosts);
 
     return (
         <div className={styles.container}>
-            {/* <div className={styles.comingSoon}>Favourites: Coming soon ...</div>
-            <CardsList cardsList={savedPosts}/> */}
+            <div className={classNames(styles.comingSoon, {[styles.lightComingSoon] : themeValue === Theme.Light})}>Favourites: Coming soon ...</div>
+            {/* <CardsList cardsList={savedPosts}/> */}
         </div>
     )
 }

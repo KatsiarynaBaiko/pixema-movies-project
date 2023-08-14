@@ -145,16 +145,16 @@ const App = () => {
 
 
   //  ThemeProvider отслеживаем состояние и функция на изменение
-  // const [themeValue, setThemeValue] = useState<Theme>(Theme.Dark);
-  // const onChangeTheme = (value: Theme) => () => {
-  //   setThemeValue(value);
-  // };
-  // перенос темы в редакс:
-  const dispatch = useDispatch();
+  const [themeValue, setThemeValue] = useState<Theme>(Theme.Dark);
   const onChangeTheme = (value: Theme) => () => {
-    dispatch(setThemeValue(value));
+    setThemeValue(value);
   };
-  const themeValue = useSelector(ThemeSelectors.getThemeValue);
+  // перенос темы в редакс:
+  // const dispatch = useDispatch();
+  // const onChangeTheme = (value: Theme) => () => {
+  //   dispatch(setThemeValue(value));
+  // };
+  // const themeValue = useSelector(ThemeSelectors.getThemeValue);
   
 
 
