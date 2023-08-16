@@ -7,6 +7,7 @@ import { setSavedStatus } from "src/redux/reducers/postSlice";
 
 import styles from './CardsList.module.scss';
 import Card from "../Card/Card";
+import Loader from "../Loader";
 
 
 
@@ -45,9 +46,10 @@ import Card from "../Card/Card";
 
 type CardsListProps = {
     cardsList: FilmsListTypes;
+    isLoading: boolean;
 
 }
-const CardsList: FC<CardsListProps> = ({ cardsList }) => {
+const CardsList: FC<CardsListProps> = ({ cardsList, isLoading }) => {
 
     const dispatch = useDispatch();
 
@@ -55,7 +57,7 @@ const CardsList: FC<CardsListProps> = ({ cardsList }) => {
         dispatch(setSavedStatus({ card }))
     }
 
-    return cardsList.length ? (
+    return cardsList.length && !isLoading ? (
         <div className={styles.container}>
 
             {cardsList.map((el) => {
@@ -68,7 +70,7 @@ const CardsList: FC<CardsListProps> = ({ cardsList }) => {
             })
             }
         </div>
-    ) : null
+    ) : (<Loader />);
 }
 
 export default CardsList

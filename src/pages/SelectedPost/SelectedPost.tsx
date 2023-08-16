@@ -8,9 +8,10 @@ import ButtonGroup from "src/components/ButtonGroup";
 import { getSinglePost, PostSelectors } from "src/redux/reducers/postSlice";
 import { useThemeContext } from "src/context/Theme";
 import { Theme } from "src/@types";
+import Loader from "src/components/Loader";
 
 import styles from './SelectedPost.module.scss';
-import Loader from "src/components/Loader";
+
 
 
 // первый апишник
