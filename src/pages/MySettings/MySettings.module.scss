@@ -1,3 +1,54 @@
 @import "src/styles/colors";
 
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    width: 1517px;
+    // row-gap: 40px;
+}
 
+
+.profileContainerInput {
+    margin-top: 16px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    background-color: $dark;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.passwordContainerInput {
+    margin-top: 16px;
+    margin-bottom: 40px;
+    background-color: $dark;
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.passwordContainerInputLeft {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+.passwordContainerInputRight {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    row-gap: 25px;
+}
+
+.colorModeContainer {
+    margin-top: 16px;
+}
+
+.lightProfileContainerInput,
+.lightPasswordContainerInput {
+    background-color:rgba($color: $primary, $alpha: 0.2)
+
+}
