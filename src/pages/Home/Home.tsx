@@ -124,11 +124,12 @@ const Home = () => {
         dispatch(getPostsList())
     }, [])
 
+    const isListLoading = useSelector(PostSelectors.getPostsListLoading)
 
     return (
         <div className={styles.container}>
             {/* <CardsList cardsList={MOCK_ARRAY} /> */}
-            <CardsList cardsList={allFilms} />
+            <CardsList cardsList={allFilms} isLoading={isListLoading}/>
         </div>
     )
 }

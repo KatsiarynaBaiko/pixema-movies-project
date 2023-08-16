@@ -14,11 +14,12 @@ const Favourites = () => {
     const { themeValue } = useThemeContext();
 
     const savedPosts = useSelector(PostSelectors.getSavedPosts);
-
+    const isListLoading = useSelector(PostSelectors.getPostsListLoading)
+    
     return (
         <div className={styles.container}>
             <div className={classNames(styles.comingSoon, {[styles.lightComingSoon] : themeValue === Theme.Light})}>Favourites: Coming soon ...</div>
-            <CardsList cardsList={savedPosts}/>
+            <CardsList cardsList={savedPosts} isLoading={isListLoading}/>
         </div>
     )
 }

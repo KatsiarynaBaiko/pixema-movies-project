@@ -11,6 +11,7 @@ type InitialState = {
     savedPosts: FilmsListTypes;
     singlePost: FilmTypes | null;
     singlePostLoading: boolean;
+    isPostsListLoading: boolean;
 };
 
 
@@ -19,6 +20,7 @@ const initialState: InitialState = {
     savedPosts: [],
     singlePost: null,
     singlePostLoading: false,
+    isPostsListLoading: false,
 };
 
 
@@ -33,6 +35,11 @@ const postSlice = createSlice({
         setPostsList: (state, action: PayloadAction<FilmsListTypes>) => {
             state.postsList = action.payload
         },
+
+        setPostsListLoading: (state, action: PayloadAction<boolean>) => {
+            state.isPostsListLoading = action.payload;
+        },
+
 
         setSavedStatus: (state, action: PayloadAction<{ card: FilmTypes }>) => {
             const { card } = action.payload;
@@ -55,20 +62,20 @@ const postSlice = createSlice({
 
         setSinglePostLoading: (state, action: PayloadAction<boolean>) => {
             state.singlePostLoading = action.payload;
-          },
+        },
 
     },
 });
 
 export const {
-    getPostsList, setPostsList,
+    getPostsList, setPostsList, setPostsListLoading,
     setSavedStatus,
-    getSinglePost, setSinglePost,
-    setSinglePostLoading,
+    getSinglePost, setSinglePost, setSinglePostLoading,
 } = postSlice.actions;
 
 export const PostSelectors = {
     getPostsList: (state: RootState) => state.postReducer.postsList,
+    getPostsListLoading: (state: RootState) => state.postReducer.isPostsListLoading,
     getSavedPosts: (state: RootState) => state.postReducer.savedPosts,
     getSinglePost: (state: RootState) => state.postReducer.singlePost,
     getSinglePostLoading: (state: RootState) => state.postReducer.singlePostLoading,

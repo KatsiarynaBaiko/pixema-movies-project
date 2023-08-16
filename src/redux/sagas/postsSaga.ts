@@ -3,7 +3,7 @@ import API from "src/utils/api";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-import { getPostsList, getSinglePost, setPostsList, setSinglePost, setSinglePostLoading } from "../reducers/postSlice";
+import { getPostsList, getSinglePost, setPostsList, setPostsListLoading, setSinglePost, setSinglePostLoading } from "../reducers/postSlice";
 import { PostsResponseData, SelectedFilmsResponseData } from "../@types";
 
 
@@ -18,7 +18,7 @@ import { PostsResponseData, SelectedFilmsResponseData } from "../@types";
 
 
 function* postsSagaWorker() {
-
+  yield put(setPostsListLoading(true));
   const response: ApiResponse<PostsResponseData | null> = yield call(
     API.getPosts,
   )
@@ -29,6 +29,7 @@ function* postsSagaWorker() {
   } else {
     console.error('Get Posts List error', response.problem);
   }
+  yield put(setPostsListLoading(false));
 }
 
 
