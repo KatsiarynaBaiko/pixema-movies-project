@@ -19,3 +19,4 @@ export { FavouritesIcon } from './FavouritesIcon';
 export { SunIcon } from './SunIcon';
 export { MoonIcon } from './MoonIcon';
 export { PixemaLogoLightIcon } from './PixemaLogoLightIcon';
+export { EmptyListIcon } from './EmptyListIcon';
