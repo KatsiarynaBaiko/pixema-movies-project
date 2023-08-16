@@ -3,7 +3,7 @@ import API from "src/utils/api";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-import { getPostsList, getSinglePost, setPostsList, setSinglePost } from "../reducers/postSlice";
+import { getPostsList, getSinglePost, setPostsList, setSinglePost, setSinglePostLoading } from "../reducers/postSlice";
 import { PostsResponseData, SelectedFilmsResponseData } from "../@types";
 
 
@@ -33,7 +33,7 @@ function* postsSagaWorker() {
 
 
 function* getSinglePostWorker(action: PayloadAction<string>) {
-
+  yield put(setSinglePostLoading(true));
   const id = action.payload;
   // const response: ApiResponse<FilmTypes> = yield call(    
   const response: ApiResponse<SelectedFilmsResponseData> = yield call(
@@ -49,6 +49,7 @@ function* getSinglePostWorker(action: PayloadAction<string>) {
   } else {
     console.error('Get Single Posts List error', response.problem);
   }
+  yield put(setSinglePostLoading(false));
 }
 
 // маленький вотчер, связываем его с rootSaga
