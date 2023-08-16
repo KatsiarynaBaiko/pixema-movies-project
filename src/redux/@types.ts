@@ -17,6 +17,5 @@ export type PostsResponseData = {
 
 
 export type SelectedFilmsResponseData = {
-
     results: FilmTypes,
 }

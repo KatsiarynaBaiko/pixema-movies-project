@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
 
 import CardsList from "src/components/CardsList";
-import { FilmsListTypes, PostsList } from "src/@types";
+import { getPostsList, PostSelectors } from "src/redux/reducers/postSlice";
 
 import styles from './Home.module.scss';
-import { useDispatch, useSelector } from "react-redux";
-import { getPostsList, PostSelectors } from "src/redux/reducers/postSlice";
 
 
 // MOCK_ARRAY можно прокидывать 
@@ -112,7 +111,7 @@ const Home = () => {
 
     // перенесли в редакс данные (получение из api по get запросу)
     // const [cardsList, setCardsList] = useState<PostsList>([]);
-    const [cardsList, setCardsList] = useState<FilmsListTypes>([]);
+    // const [cardsList, setCardsList] = useState<FilmsListTypes>([]);
 
     // useEffect(() => {
     //     setCardsList(MOCK_ARRAY);
@@ -124,6 +123,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(getPostsList())
     }, [])
+
 
     return (
         <div className={styles.container}>

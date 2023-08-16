@@ -25,6 +25,7 @@ const getPosts = () => {
     return API.get("/titles");
 };
 
+
 const getSinglePost = (id: string) => {
     return API.get(`/titles/${id}/`);
 };

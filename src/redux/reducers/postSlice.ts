@@ -10,6 +10,7 @@ type InitialState = {
     postsList: FilmsListTypes;
     savedPosts: FilmsListTypes;
     singlePost: FilmTypes | null;
+    totalCount: number;
 };
 
 
@@ -17,6 +18,7 @@ const initialState: InitialState = {
     postsList: [],
     savedPosts: [],
     singlePost: null,
+    totalCount: 0,
 };
 
 
@@ -24,19 +26,6 @@ const postSlice = createSlice({
     name: "postReducer",
     initialState,
     reducers: {
-
-        // setSavedStatus: (state, action: PayloadAction<{ card: Post }>) => {
-        //     const { card } = action.payload;
-
-        //     const savedIndex = state.savedPosts.findIndex(
-        //         (item) => item.id === card.id
-        //     );
-
-        //     if (savedIndex === -1) {
-        //         state.savedPosts.push(card)
-        //     } else
-        //         state.savedPosts.splice(savedIndex, 1)
-        // },
 
         getPostsList: (_, __: PayloadAction<undefined>) => { },
         // getPostsList: (state, action: PayloadAction<undefined>) => { },
@@ -77,6 +66,8 @@ export const PostSelectors = {
     getPostsList: (state: RootState) => state.postReducer.postsList,
     getSavedPosts: (state: RootState) => state.postReducer.savedPosts,
     getSinglePost: (state: RootState) => state.postReducer.singlePost,
+    getTotalPostsCount: (state: RootState) => state.postReducer.totalCount,
+
 };
 
 

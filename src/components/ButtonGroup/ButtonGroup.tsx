@@ -19,7 +19,7 @@ type ButtonGroupProps = {
 
 // используем фрагмент ( <>...  </>) - это
 // пустой тег, когда нужно вставить куда-то группу элементов
-const ButtonGroup: FC<ButtonGroupProps> = ({ onClick, disabled, className}) => {
+const ButtonGroup: FC<ButtonGroupProps> = ({ onClick, disabled, className }) => {
 
     const { themeValue } = useThemeContext();
 
