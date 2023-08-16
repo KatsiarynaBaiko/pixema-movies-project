@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 
-import styles from './MySettings.module.scss';
 import ThemeSwitcher from "src/components/ThemeSwitcher";
-
 import { useThemeContext } from "src/context/Theme";
 import { Theme } from "src/@types";
 import Title from "src/components/Title";
 import Input from "src/components/Input";
+import Button, { ButtonTypes } from "src/components/Button";
 
-
+import styles from './MySettings.module.scss';
+import { RoutesList } from "../Router";
 
 const MySettings = () => {
 
     const { themeValue } = useThemeContext();
+
+    const navigate = useNavigate();
+    const onClickCancel = () => {
+        navigate(RoutesList.Home);
+    };
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -24,7 +30,7 @@ const MySettings = () => {
 
     return (
         <div className={styles.container}>
-            
+
             <Title className={classNames(styles.title)} title={"Profile"} />
             <div className={classNames(styles.profileContainerInput, {[styles.lightProfileContainerInput] : themeValue === Theme.Light})}>
                 <Input title={'Name'} placeholder={'Your name'} onChange={setName} value={name} />
@@ -49,7 +55,23 @@ const MySettings = () => {
             <div className={styles.colorModeContainer}>
                 <ThemeSwitcher titleSun={"Use light thema"} titleMoon={"Use dark thema"} />
             </div>
-        </div>
+
+            <div className={styles.buttonContainer}>
+                  <Button
+                  title={'Cancel'}
+                  type={ButtonTypes.Secondary}
+                  onClick={onClickCancel}
+                  />
+
+                  <Button
+                  className={styles.button}
+                  title={"Save"}
+                  type={ButtonTypes.Primary}
+                  onClick={()=>{}}
+                  />
+                  
+               </div>
+         </div>
     )
 }
 
