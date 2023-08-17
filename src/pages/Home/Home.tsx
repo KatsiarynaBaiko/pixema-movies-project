@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import CardsList from "src/components/CardsList";
 import { getPostsList, PostSelectors } from "src/redux/reducers/postSlice";
-
-import styles from './Home.module.scss';
 import Button, { ButtonTypes } from "src/components/Button";
 import Pagination from "src/components/Pagination";
+
+import styles from './Home.module.scss';
 
 
 // MOCK_ARRAY можно прокидывать 
@@ -129,7 +129,7 @@ const Home = () => {
     const isListLoading = useSelector(PostSelectors.getPostsListLoading)
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [filmsPerPage] = useState(3)
+    const [filmsPerPage] = useState(3) // количество фильмов (карточек) на страничке
 
     const lastFilmIndex = currentPage * filmsPerPage
     const firstFilmIndex = lastFilmIndex - filmsPerPage
@@ -149,7 +149,6 @@ const Home = () => {
                 totalFilms={allFilms.length}
                 paginate={paginate}
             />
-
         </div>
     )
 }
