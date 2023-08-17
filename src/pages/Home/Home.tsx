@@ -6,6 +6,8 @@ import CardsList from "src/components/CardsList";
 import { getPostsList, PostSelectors } from "src/redux/reducers/postSlice";
 
 import styles from './Home.module.scss';
+import Button, { ButtonTypes } from "src/components/Button";
+import Pagination from "src/components/Pagination";
 
 
 // MOCK_ARRAY можно прокидывать 
@@ -126,10 +128,28 @@ const Home = () => {
 
     const isListLoading = useSelector(PostSelectors.getPostsListLoading)
 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [filmsPerPage] = useState(3)
+
+    const lastFilmIndex = currentPage * filmsPerPage
+    const firstFilmIndex = lastFilmIndex - filmsPerPage
+    const currentFilms = allFilms.slice(firstFilmIndex, lastFilmIndex) //текущая страничка
+
+
+    const paginate = (pageNumber: any) => setCurrentPage(pageNumber)
+
+
     return (
         <div className={styles.container}>
             {/* <CardsList cardsList={MOCK_ARRAY} /> */}
-            <CardsList cardsList={allFilms} isLoading={isListLoading}/>
+            {/* <CardsList cardsList={allFilms} isLoading={isListLoading} /> */}
+            <CardsList cardsList={currentFilms} isLoading={isListLoading} />
+            <Pagination
+                filmsPerPage={filmsPerPage}
+                totalFilms={allFilms.length}
+                paginate={paginate}
+            />
+
         </div>
     )
 }
