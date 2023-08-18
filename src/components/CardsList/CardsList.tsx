@@ -46,7 +46,7 @@ import Loader from "../Loader";
 
 type CardsListProps = {
     cardsList: FilmsListTypes;
-    isLoading: boolean;
+    isLoading?: boolean;
 
 }
 const CardsList: FC<CardsListProps> = ({ cardsList, isLoading }) => {

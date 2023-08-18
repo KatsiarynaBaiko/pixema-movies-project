@@ -12,6 +12,7 @@ type InitialState = {
     singlePost: FilmTypes | null;
     singlePostLoading: boolean;
     isPostsListLoading: boolean;
+    searchedPosts: FilmsListTypes;
 };
 
 
@@ -21,6 +22,7 @@ const initialState: InitialState = {
     singlePost: null,
     singlePostLoading: false,
     isPostsListLoading: false,
+    searchedPosts: [],
 };
 
 
@@ -64,6 +66,15 @@ const postSlice = createSlice({
             state.singlePostLoading = action.payload;
         },
 
+        getSearchedPosts: (_, __: PayloadAction<string>) => { },
+
+        setSearchedPosts: (state, action: PayloadAction<FilmsListTypes>) => {
+            state.searchedPosts = action.payload;
+        },
+
+        clearSearchedPosts: (state) => {
+            state.searchedPosts = [];
+        },
     },
 });
 
@@ -71,6 +82,8 @@ export const {
     getPostsList, setPostsList, setPostsListLoading,
     setSavedStatus,
     getSinglePost, setSinglePost, setSinglePostLoading,
+    getSearchedPosts, setSearchedPosts,
+    clearSearchedPosts,
 } = postSlice.actions;
 
 export const PostSelectors = {
@@ -79,6 +92,7 @@ export const PostSelectors = {
     getSavedPosts: (state: RootState) => state.postReducer.savedPosts,
     getSinglePost: (state: RootState) => state.postReducer.singlePost,
     getSinglePostLoading: (state: RootState) => state.postReducer.singlePostLoading,
+    getSearchedPosts: (state: RootState) => state.postReducer.searchedPosts,
 };
 
 

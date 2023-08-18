@@ -1,9 +1,10 @@
 import { ApiResponse } from "apisauce";
-import API from "src/utils/api";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-import { getPostsList, getSinglePost, setPostsList, setPostsListLoading, setSinglePost, setSinglePostLoading } from "../reducers/postSlice";
+import API from "src/utils/api";
+
+import { getPostsList, getSearchedPosts, getSinglePost, setPostsList, setPostsListLoading, setSearchedPosts, setSinglePost, setSinglePostLoading } from "../reducers/postSlice";
 import { PostsResponseData, SelectedFilmsResponseData } from "../@types";
 
 
@@ -53,10 +54,28 @@ function* getSinglePostWorker(action: PayloadAction<string>) {
   yield put(setSinglePostLoading(false));
 }
 
+
+function* getSearchedPostsWorker(action: PayloadAction<string>) {
+  // const response: ApiResponse<PostsResponseData> = yield call(
+  const response: ApiResponse<PostsResponseData | null> = yield call(
+
+    API.getSearchPosts,
+    action.payload
+  );
+  if (response.ok && response.data) {
+    yield put(setSearchedPosts(response.data.results));
+  } else {
+    console.error("Searched Posts error", response.problem);
+  }
+}
+
+
+
 // маленький вотчер, связываем его с rootSaga
 export default function* postsSagaWatcher() {
   yield all([
     takeLatest(getPostsList, postsSagaWorker),
     takeLatest(getSinglePost, getSinglePostWorker),
+    takeLatest(getSearchedPosts, getSearchedPostsWorker),
   ]);
 }

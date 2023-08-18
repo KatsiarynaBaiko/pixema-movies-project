@@ -30,8 +30,15 @@ const getSinglePost = (id: string) => {
     return API.get(`/titles/${id}/`);
 };
 
+// title - наш параметр
+// exact - точное совпадение по введенному в инпут (при поиске)
+const getSearchPosts = (title: string) => {
+    return API.get(`/titles/search/title/${title}`, { exact: false })
+
+}
 
 export default {
     getPosts,
     getSinglePost,
+    getSearchPosts,
 };

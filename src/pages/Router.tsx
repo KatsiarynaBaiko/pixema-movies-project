@@ -1,13 +1,15 @@
 import React from "react"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import Favourites from "./Favourites"
-import Home from "./Home"
-import MySettings from "./MySettings"
+
 import PagesContainer from "./PagesContainer"
+import Home from "./Home"
+import Trends from "./Trends"
+import Favourites from "./Favourites"
+import MySettings from "./MySettings"
 import SelectedPost from "./SelectedPost"
+import Search from "./Search"
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
-import Trends from "./Trends"
 
 
 //  enum, так как наши пути захардкожены(неизменны)
@@ -18,8 +20,8 @@ export enum RoutesList {
     MySettings = "/my-settings",
     // SelectedPost = "selected-post",
     SelectedPost = '/titles/:id',
-    Search = "search",
-    // Search = "/posts/:search",
+    // Search = "search",
+    Search = '/titles/search/title/:title',
     SignUp = "/sign-up",
     SignIn = "/sign-in",
     Default = "*",
@@ -39,10 +41,11 @@ const Router = () => {
         <Routes>
             <Route path={RoutesList.Home} element={<PagesContainer />}>
                 <Route path={RoutesList.Home} element={<Home />} />
-                <Route path={RoutesList.SelectedPost} element={<SelectedPost />} />
-                <Route path={RoutesList.Favourites} element={<Favourites />} />
                 <Route path={RoutesList.Trends} element={<Trends />} />
+                <Route path={RoutesList.Favourites} element={<Favourites />} />
                 <Route path={RoutesList.MySettings} element={<MySettings />} />
+                <Route path={RoutesList.SelectedPost} element={<SelectedPost />} />
+                <Route path={RoutesList.Search} element={<Search />} />
                 <Route path={RoutesList.Default} element={<Navigate to={RoutesList.Home} />} />
             </Route>
             <Route path={RoutesList.SignUp} element={<SignUp />} />
