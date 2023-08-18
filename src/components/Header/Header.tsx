@@ -1,21 +1,36 @@
 import React, { useState } from "react"
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { useThemeContext } from "src/context/Theme";
+import { Theme } from "src/@types";
 import { PixemaLogoIcon, PixemaLogoLightIcon, SearchIcon } from "src/assets/icons";
+import { clearSearchedPosts } from "src/redux/reducers/postSlice";
 
 import styles from './Header.module.scss';
 import Button, { ButtonTypes } from "../Button";
 import Input from "../Input";
 import Username from "../Username";
-import { Theme } from "src/@types";
 
 
 // отслеживаем есостояние интпута => используем useState
 const Header = () => {
     const { themeValue } = useThemeContext();
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [inputValue, setInputValue] = useState('');
+
+
+    const handleSearchOpened = () => {
+        if ( inputValue) {
+            dispatch(clearSearchedPosts());
+            navigate(`/titles/search/title/${inputValue}`);
+            setInputValue("");
+        }
+    };
 
     return (
         <div className={styles.header}>
@@ -34,7 +49,8 @@ const Header = () => {
             <Button
                 type={ButtonTypes.Primary}
                 title={<SearchIcon />}
-                onClick={() => { }}
+                // onClick={() => { }}
+                 onClick={handleSearchOpened}
                 className={styles.searchButton}
             />
 
