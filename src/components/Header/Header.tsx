@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, KeyboardEvent } from "react"
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -23,12 +23,21 @@ const Header = () => {
 
     const [inputValue, setInputValue] = useState('');
 
-
-    const handleSearchOpened = () => {
-        if ( inputValue) {
+    // поиск при нажатии на кнопочку c иконкой Search
+    const handleSearchResults = () => {
+        if (inputValue) {
             dispatch(clearSearchedPosts());
             navigate(`/titles/search/title/${inputValue}`);
             setInputValue("");
+        }
+    };
+
+    // поиск при нажатии на кнопочку Enter на клавиатуре
+    const onKeyDown = (
+        event: KeyboardEvent<HTMLInputElement>
+    ) => {
+        if (event.key === "Enter") {
+            handleSearchResults();
         }
     };
 
@@ -44,13 +53,14 @@ const Header = () => {
                 placeholder='Search...'
                 onChange={setInputValue}
                 value={inputValue}
+                onKeyDown={onKeyDown}
             />
 
             <Button
                 type={ButtonTypes.Primary}
                 title={<SearchIcon />}
                 // onClick={() => { }}
-                 onClick={handleSearchOpened}
+                onClick={handleSearchResults}
                 className={styles.searchButton}
             />
 

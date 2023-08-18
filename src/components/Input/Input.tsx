@@ -37,6 +37,7 @@ const Input: FC<InputProps> = ({ title, errorText, placeholder, onChange, disabl
                 onChange={onInputChange}
                 value={value}
                 placeholder={placeholder}
+                onKeyDown={onKeyDown}
                 className={classNames(styles.input, {
                     [styles.disabled]: disabled,
                     [styles.errorInput]: errorText,
