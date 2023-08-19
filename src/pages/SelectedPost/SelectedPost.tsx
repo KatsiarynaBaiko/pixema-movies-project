@@ -207,8 +207,8 @@ const SelectedPost = () => {
                             <li>Writers</li>
                         </ul>
                         <ul className={classNames(styles.descriptionInfoRight, { [styles.lightDescriptionInfoRight]: themeValue === Theme.Light })}>
-                            <li>{'2011'}</li>
-                            <li>{'15 Jul 2011'}</li>
+                            <li>{singlePost?.releaseYear?.year}</li>
+                            <li>{singlePost?.releaseDate?.day + '.' + singlePost?.releaseDate?.month + '.' + singlePost?.releaseDate?.year}</li>
                             <li>{'$381,409,310'}</li>
                             <li>{'United Kingdom, United States'}</li>
                             <li>{'Heyday Films, Moving Picture Company, Warner Bros.'}</li>
