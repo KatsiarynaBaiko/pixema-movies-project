@@ -41,9 +41,11 @@ const getSinglePost = (id: string) => {
 
 // title - наш параметр
 // exact - точное совпадение по введенному в инпут (при поиске)
+// const getSearchPosts = (title: string) => {
+//     return API.get(`/titles/search/title/${title}`, { exact: false })
+// }
 const getSearchPosts = (title: string) => {
-    return API.get(`/titles/search/title/${title}`, { exact: false })
-
+    return API.get(`/titles/search/title/${title}`, { info: "base_info", exact: false })
 }
 
 export default {

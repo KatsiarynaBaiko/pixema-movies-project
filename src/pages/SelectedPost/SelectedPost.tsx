@@ -208,7 +208,8 @@ const SelectedPost = () => {
                         </ul>
                         <ul className={classNames(styles.descriptionInfoRight, { [styles.lightDescriptionInfoRight]: themeValue === Theme.Light })}>
                             <li>{singlePost?.releaseYear?.year}</li>
-                            <li>{singlePost?.releaseDate?.day + '.' + singlePost?.releaseDate?.month + '.' + singlePost?.releaseDate?.year}</li>
+                            {/* <li>{singlePost?.releaseDate?.day + '.' + singlePost?.releaseDate?.month + '.' + singlePost?.releaseDate?.year}</li> */}
+                            <li>{singlePost?.releaseDate ? singlePost?.releaseDate?.day + '.' + singlePost?.releaseDate?.month + '.' + singlePost?.releaseDate?.year : singlePost?.releaseYear?.year}</li>
                             <li>{'$381,409,310'}</li>
                             <li>{'United Kingdom, United States'}</li>
                             <li>{'Heyday Films, Moving Picture Company, Warner Bros.'}</li>
