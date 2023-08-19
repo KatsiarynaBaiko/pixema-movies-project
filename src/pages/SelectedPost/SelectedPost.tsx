@@ -132,7 +132,7 @@ const SelectedPost = () => {
 
     const isSinglePostLoading = useSelector(PostSelectors.getSinglePostLoading);
 
-
+    const filmsGenres = singlePost?.genres?.genres.map(genre => genre.text).join(' • ');
 
     return (
         singlePost && !isSinglePostLoading ? (
@@ -152,13 +152,14 @@ const SelectedPost = () => {
 
                 <div className={styles.singleMovieInfo}>
 
-                    <div className={styles.genre}>{'History movies'}</div>
+                    {/* <div className={styles.genre}>{'History movies'}</div> */}
+                    <div className={styles.genre}>{filmsGenres}</div>
                     <div className={classNames(styles.name, { [styles.lightTitle]: themeValue === Theme.Light })}>{singlePost?.titleText?.text}</div>
 
                     <div className={styles.ratingContainer}>
 
                         <div className={classNames(styles.rating, {})}>
-
+                            {/* <div className={styles.ratingScore}>{'9'} <TrendsIcon /> </div> */}
                             {singlePost?.ratingsSummary?.aggregateRating ? (
                                 <div
                                     className={classNames(styles.rating, {
@@ -172,7 +173,6 @@ const SelectedPost = () => {
                                     {singlePost?.ratingsSummary?.aggregateRating}
                                 </div>
                             ) : ''}
-                            {/* <div className={styles.ratingScore}>{'9'} <TrendsIcon /> </div> */}
                             <div className={classNames(styles.imdb_id, { [styles.lightImdb_id]: themeValue === Theme.Light })}>{'IMDb 7.6'}</div>
                             <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>{'130 min'}</div>
                         </div>
