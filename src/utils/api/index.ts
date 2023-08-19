@@ -48,8 +48,16 @@ const getSearchPosts = (title: string) => {
     return API.get(`/titles/search/title/${title}`, { info: "base_info", exact: false })
 }
 
+const getTrendsPosts = () => {
+    // return API.get("/titles", {info: "base_info", sort: 'year.decr', list: 'top_rated_english_250'});
+    // return API.get("/titles", {info: "base_info", sort: 'year.decr', list: 'top_boxoffice_last_weekend_10'});
+    return API.get("/titles", {info: "base_info", sort: 'year.decr', list: 'most_pop_movies', limit: 50});
+
+};
+
 export default {
     getPosts,
     getSinglePost,
     getSearchPosts,
+    getTrendsPosts,
 };

@@ -14,6 +14,8 @@ type InitialState = {
     isPostsListLoading: boolean;
     searchedPosts: FilmsListTypes;
     searchedPostsLoading: boolean;
+    trendsPostsList: FilmsListTypes;
+    trendsPostsListLoading: boolean;
 };
 
 
@@ -25,6 +27,8 @@ const initialState: InitialState = {
     isPostsListLoading: false,
     searchedPosts: [],
     searchedPostsLoading: false,
+    trendsPostsList: [],
+    trendsPostsListLoading: false,
 };
 
 
@@ -79,7 +83,17 @@ const postSlice = createSlice({
         },
 
         setSearchedPostsLoading: (state, action: PayloadAction<boolean>) => {
-            state.searchedPostsLoading  = action.payload;
+            state.searchedPostsLoading = action.payload;
+        },
+
+        getTrendsPostsList: (_, __: PayloadAction<undefined>) => { },
+
+        setTrendsPostsList: (state, action: PayloadAction<FilmsListTypes>) => {
+            state.trendsPostsList = action.payload
+        },
+
+        setTrendsPostsListLoading: (state, action: PayloadAction<boolean>) => {
+            state.trendsPostsListLoading = action.payload;
         },
     },
 });
@@ -88,7 +102,8 @@ export const {
     getPostsList, setPostsList, setPostsListLoading,
     setSavedStatus,
     getSinglePost, setSinglePost, setSinglePostLoading,
-    getSearchedPosts, setSearchedPosts, clearSearchedPosts, setSearchedPostsLoading, 
+    getSearchedPosts, setSearchedPosts, clearSearchedPosts, setSearchedPostsLoading,
+    getTrendsPostsList, setTrendsPostsList, setTrendsPostsListLoading,
 } = postSlice.actions;
 
 export const PostSelectors = {
@@ -99,6 +114,8 @@ export const PostSelectors = {
     getSinglePostLoading: (state: RootState) => state.postReducer.singlePostLoading,
     getSearchedPosts: (state: RootState) => state.postReducer.searchedPosts,
     getSearchedPostsLoading: (state: RootState) => state.postReducer.searchedPostsLoading,
+    getTrendsPostsList: (state: RootState) => state.postReducer.trendsPostsList,
+    getTrendsPostsListLoading: (state: RootState) => state.postReducer.trendsPostsListLoading,
 };
 
 
