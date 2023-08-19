@@ -40,7 +40,7 @@ const Search = () => {
             <Title title={`Search results: "${title}"`} />
             <div className={styles.container}>
                 {searchedPosts.length && !isSearchedPostsLoading  ? (
-                    <div>
+                    <div className={styles.searchResultsContainer}>
                         <CardsList cardsList={searchedPosts} />
                         {/* <CardsList cardsList={searchedPosts} isLoading={isSearchedPostsLoading}/> */}
                     </div>

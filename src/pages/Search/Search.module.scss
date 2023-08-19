@@ -2,9 +2,13 @@
 @import "src/styles/mixins";
 
 .container {
-  margin-top: 56px;
+  margin-top: 36px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   // width: 900px;
+}
+
+.searchResultsContainer {
+
 }
