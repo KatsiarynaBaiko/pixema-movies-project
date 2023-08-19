@@ -26,7 +26,7 @@ const API = create({
 // };
 // add "base_info"
 const getPosts = () => {
-    return API.get("/titles", {info: "base_info"});
+    return API.get("/titles", {info: "base_info", limit: 50});
 };
 
 
@@ -45,7 +45,7 @@ const getSinglePost = (id: string) => {
 //     return API.get(`/titles/search/title/${title}`, { exact: false })
 // }
 const getSearchPosts = (title: string) => {
-    return API.get(`/titles/search/title/${title}`, { info: "base_info", exact: false })
+    return API.get(`/titles/search/title/${title}`, { info: "base_info", exact: false, limit: 50 })
 }
 
 const getTrendsPosts = () => {

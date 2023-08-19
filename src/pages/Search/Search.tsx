@@ -39,7 +39,7 @@ const Search = () => {
 
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [filmsPerPage] = useState(5) // количество фильмов (карточек) на страничке
+    const [filmsPerPage] = useState(10) // количество фильмов (карточек) на страничке
 
     const lastFilmIndex = currentPage * filmsPerPage
     const firstFilmIndex = lastFilmIndex - filmsPerPage

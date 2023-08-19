@@ -129,7 +129,7 @@ const Home = () => {
     const isListLoading = useSelector(PostSelectors.getPostsListLoading)
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [filmsPerPage] = useState(3) // количество фильмов (карточек) на страничке
+    const [filmsPerPage] = useState(10) // количество фильмов (карточек) на страничке
 
     const lastFilmIndex = currentPage * filmsPerPage
     const firstFilmIndex = lastFilmIndex - filmsPerPage
