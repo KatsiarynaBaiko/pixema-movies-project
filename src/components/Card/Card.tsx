@@ -73,7 +73,7 @@ import styles from './Card.module.scss'
 
 //второй апишник
 // const Card: FC<FilmTypes> = ({ id, titleText, primaryImage, onSavedClick }) => {
-const Card: FC<FilmTypes> = ({ id, ratingsSummary, titleText, primaryImage, onSavedClick }) => {
+const Card: FC<FilmTypes> = ({ id, ratingsSummary, genres, titleText, primaryImage, onSavedClick }) => {
 
     const { themeValue } = useThemeContext();
 
@@ -88,6 +88,8 @@ const Card: FC<FilmTypes> = ({ id, ratingsSummary, titleText, primaryImage, onSa
     const onTitleClick = () => {
         navigate(`/titles/${id}/`);
     };
+
+    const filmsGenres = genres?.genres.map(genre => genre.text).join(' • ');
 
     return (
 
@@ -118,7 +120,9 @@ const Card: FC<FilmTypes> = ({ id, ratingsSummary, titleText, primaryImage, onSa
                 </div>
             </div>
             <div onClick={onTitleClick} className={classNames(styles.name, { [styles.lightName]: themeValue === Theme.Light })}>{titleText.text}</div>
-            <div className={styles.genre}>History movie</div>
+            {/* <div className={styles.genre}>History movie</div> */}
+            <div className={styles.genre}>{filmsGenres}</div>
+
         </div>
 
     );
