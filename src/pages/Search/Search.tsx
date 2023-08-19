@@ -13,6 +13,7 @@ import styles from "./Search.module.scss";
 import { RoutesList } from "../Router";
 import { getSearchedPosts, PostSelectors } from "src/redux/reducers/postSlice";
 import Loader from "src/components/Loader";
+import Pagination from "src/components/Pagination";
 
 
 
@@ -35,14 +36,28 @@ const Search = () => {
         }
     }, [title]);
 
+
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [filmsPerPage] = useState(5) // количество фильмов (карточек) на страничке
+
+    const lastFilmIndex = currentPage * filmsPerPage
+    const firstFilmIndex = lastFilmIndex - filmsPerPage
+    const currentFilms = searchedPosts.slice(firstFilmIndex, lastFilmIndex) //текущая страничка
+
+    const paginate = (pageNumber: any) => setCurrentPage(pageNumber)
+
+
     return (
         <div>
             <Title title={`Search results: "${title}"`} />
             <div className={styles.container}>
                 {searchedPosts.length && !isSearchedPostsLoading  ? (
                     <div className={styles.searchResultsContainer}>
-                        <CardsList cardsList={searchedPosts} />
+                        {/* <CardsList cardsList={searchedPosts} /> */}
                         {/* <CardsList cardsList={searchedPosts} isLoading={isSearchedPostsLoading}/> */}
+                        <CardsList cardsList={currentFilms} />
+
                     </div>
 
                 ) : (
@@ -54,6 +69,11 @@ const Search = () => {
                 )
                 }
             </div>
+            <Pagination
+                filmsPerPage={filmsPerPage}
+                totalFilms={searchedPosts.length}
+                paginate={paginate}
+            />
         </div>
     );
 };
