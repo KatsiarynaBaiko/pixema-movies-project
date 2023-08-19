@@ -4,7 +4,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 import API from "src/utils/api";
 
-import { getPostsList, getSearchedPosts, getSinglePost, setPostsList, setPostsListLoading, setSearchedPosts, setSinglePost, setSinglePostLoading } from "../reducers/postSlice";
+import { getPostsList, getSearchedPosts, getSinglePost, setPostsList, setPostsListLoading, setSearchedPosts, setSearchedPostsLoading, setSinglePost, setSinglePostLoading } from "../reducers/postSlice";
 import { PostsResponseData, SelectedFilmsResponseData } from "../@types";
 
 
@@ -56,9 +56,9 @@ function* getSinglePostWorker(action: PayloadAction<string>) {
 
 
 function* getSearchedPostsWorker(action: PayloadAction<string>) {
+  yield put(setSearchedPostsLoading(true));
   // const response: ApiResponse<PostsResponseData> = yield call(
   const response: ApiResponse<PostsResponseData | null> = yield call(
-
     API.getSearchPosts,
     action.payload
   );
@@ -67,6 +67,7 @@ function* getSearchedPostsWorker(action: PayloadAction<string>) {
   } else {
     console.error("Searched Posts error", response.problem);
   }
+  yield put(setSearchedPostsLoading(false))
 }
 
 

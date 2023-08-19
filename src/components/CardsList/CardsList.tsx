@@ -8,6 +8,7 @@ import { setSavedStatus } from "src/redux/reducers/postSlice";
 import styles from './CardsList.module.scss';
 import Card from "../Card/Card";
 import Loader from "../Loader";
+import EmptyState from "../EmptyState";
 
 
 
@@ -57,6 +58,10 @@ const CardsList: FC<CardsListProps> = ({ cardsList, isLoading }) => {
         dispatch(setSavedStatus({ card }))
     }
 
+    // if (isLoading) {
+    //     return <Loader />
+    // }
+
     return cardsList.length && !isLoading ? (
         <div className={styles.container}>
 
@@ -71,6 +76,12 @@ const CardsList: FC<CardsListProps> = ({ cardsList, isLoading }) => {
             }
         </div>
     ) : (<Loader />);
+    // ) : (
+    //     <EmptyState
+    //         title={"Nothing was found..."}
+    //         description={"Try to add new post"}
+    //     />
+    // );
 }
 
 export default CardsList
