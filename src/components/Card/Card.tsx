@@ -72,7 +72,8 @@ import styles from './Card.module.scss'
 
 
 //второй апишник
-const Card: FC<FilmTypes> = ({ id, titleText, primaryImage, onSavedClick }) => {
+// const Card: FC<FilmTypes> = ({ id, titleText, primaryImage, onSavedClick }) => {
+const Card: FC<FilmTypes> = ({ id, ratingsSummary, titleText, primaryImage, onSavedClick }) => {
 
     const { themeValue } = useThemeContext();
 
@@ -97,6 +98,21 @@ const Card: FC<FilmTypes> = ({ id, titleText, primaryImage, onSavedClick }) => {
                 ) : (
                     <div> <img src='https://gitu.net/gituimg/free-psd-mockups-download/Free-Pop-Corn-Box-Packaging-Mockup-PSD-Set-2.jpg' alt='Sorry...No poster..' className={styles.poster} /> </div>
                 )}
+
+                {ratingsSummary?.aggregateRating ? (
+                    <div
+                        className={classNames(styles.rating, {
+                            [styles.ratingOrange]: ratingsSummary?.aggregateRating <= 4,
+                            [styles.ratingYellow]: ratingsSummary?.aggregateRating > 4 && ratingsSummary?.aggregateRating < 7,
+                            [styles.ratingGreen]: ratingsSummary?.aggregateRating >= 7,
+
+                        })}
+                    >
+                        {ratingsSummary?.aggregateRating >= 7 ? <TrendsIcon /> : ''}
+                        {ratingsSummary?.aggregateRating}
+                    </div>
+                ) : ''}
+
                 <div onClick={onSavedClick} className={classNames(styles.favouritesCard, { [styles.lightFavouritesCard]: themeValue === Theme.Light })}>
                     {savedIndex > -1 ? <AddFavouritesIcon /> : <FavouritesIconBlank />}
                 </div>

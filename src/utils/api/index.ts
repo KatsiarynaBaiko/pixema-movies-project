@@ -20,9 +20,13 @@ const API = create({
     }
 });
 
+// const getPosts = () => {
+//     // return API.get("/titles/?limit=10");
+//     return API.get("/titles");
+// };
+
 const getPosts = () => {
-    // return API.get("/titles/?limit=10");
-    return API.get("/titles");
+    return API.get("/titles", {info: "base_info"});
 };
 
 

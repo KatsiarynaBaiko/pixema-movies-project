@@ -78,6 +78,40 @@ export type FilmTypes = {
     _id: string,
     id: string,
 
+    // base info start
+    ratingsSummary: {
+        aggregateRating: number,
+        voteCount: number,
+        __typename: string,
+    },
+
+    episodes: null,
+
+    genres: {
+        genres: [
+            {
+                text: string,
+                id: string,
+                __typename: string,
+            }
+        ],
+    },
+
+    runtime: {
+        seconds: number
+    },
+
+    series: null,
+
+    plot: {
+        plotText: {
+            plainText: string,
+            __typename: string,
+        }
+    },
+
+    // base info end
+
     primaryImage: {
         id: string,
         width: number,
