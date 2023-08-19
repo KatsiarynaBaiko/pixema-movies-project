@@ -27,13 +27,15 @@ const Trends = () => {
     return (
         <div className={styles.container}>
             {/* <div className={classNames(styles.comingSoon, {[styles.lightComingSoon] : themeValue === Theme.Light})}> Trends: Coming soon ...</div> */}
-
-            <CardsList cardsList={trendsFilms} />
-
-            {/* <EmptyState
-            title={"Coming soon..."}
-            description={"Plese, visit another pages"}
-          /> */}
+            {trendsFilms.length ? (
+                <CardsList cardsList={trendsFilms} isLoading={isListLoading} />
+            ) : (
+                <EmptyState
+                    title={"Coming soon..."}
+                    description={"Plese, visit another pages"}
+                />
+            )
+            }
         </div>
     )
 }
