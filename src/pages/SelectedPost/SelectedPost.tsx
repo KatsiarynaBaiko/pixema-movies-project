@@ -174,7 +174,14 @@ const SelectedPost = () => {
                                 </div>
                             ) : ''}
                             <div className={classNames(styles.imdb_id, { [styles.lightImdb_id]: themeValue === Theme.Light })}>{'IMDb 7.6'}</div>
-                            <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>{'130 min'}</div>
+                            {/* <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>{'130 min'}</div> */}
+                            <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>
+                                {singlePost?.runtime ? (
+                                    singlePost?.runtime?.seconds / 60 + ' min'
+                               ) :
+                               'Not found min'}
+                            </div>
+
                         </div>
                     </div>
 
