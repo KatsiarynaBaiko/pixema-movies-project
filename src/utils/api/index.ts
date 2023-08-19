@@ -24,15 +24,20 @@ const API = create({
 //     // return API.get("/titles/?limit=10");
 //     return API.get("/titles");
 // };
-
+// add "base_info"
 const getPosts = () => {
     return API.get("/titles", {info: "base_info"});
 };
 
 
+// const getSinglePost = (id: string) => {
+//     return API.get(`/titles/${id}/`);
+// };
+// add "base_info"
 const getSinglePost = (id: string) => {
-    return API.get(`/titles/${id}/`);
+    return API.get(`/titles/${id}/`, {info: "base_info"});
 };
+
 
 // title - наш параметр
 // exact - точное совпадение по введенному в инпут (при поиске)

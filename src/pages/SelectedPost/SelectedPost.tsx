@@ -133,8 +133,9 @@ const SelectedPost = () => {
     const isSinglePostLoading = useSelector(PostSelectors.getSinglePostLoading);
 
 
+
     return (
-        singlePost && !isSinglePostLoading? (
+        singlePost && !isSinglePostLoading ? (
             <div className={styles.container}>
 
                 <div className={styles.containerLeft}>
@@ -157,7 +158,21 @@ const SelectedPost = () => {
                     <div className={styles.ratingContainer}>
 
                         <div className={classNames(styles.rating, {})}>
-                            <div className={styles.ratingScore}>{'9'} <TrendsIcon /> </div>
+
+                            {singlePost?.ratingsSummary?.aggregateRating ? (
+                                <div
+                                    className={classNames(styles.rating, {
+                                        [styles.ratingOrange]: singlePost?.ratingsSummary?.aggregateRating <= 4,
+                                        [styles.ratingYellow]: singlePost?.ratingsSummary?.aggregateRating > 4 && singlePost?.ratingsSummary?.aggregateRating < 7,
+                                        [styles.ratingGreen]: singlePost?.ratingsSummary?.aggregateRating >= 7,
+
+                                    })}
+                                >
+                                    {singlePost?.ratingsSummary?.aggregateRating >= 7 ? <TrendsIcon /> : ''}
+                                    {singlePost?.ratingsSummary?.aggregateRating}
+                                </div>
+                            ) : ''}
+                            {/* <div className={styles.ratingScore}>{'9'} <TrendsIcon /> </div> */}
                             <div className={classNames(styles.imdb_id, { [styles.lightImdb_id]: themeValue === Theme.Light })}>{'IMDb 7.6'}</div>
                             <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>{'130 min'}</div>
                         </div>

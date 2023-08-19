@@ -59,11 +59,33 @@
     margin: 24px 0px 42px;
 }
 
-.rating {
+
+.rating {  
+
+    gap: 20px; 
+    font-family: 'Exo 2';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    color: $white;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+}
+
+.ratingOrange {
+    background-color: $orange;
+}
+
+.ratingYellow {
+    background-color: $yellow;
+}
+
+.ratingGreen {
+    background-color: $green;
 }
 
 .ratingScore {
