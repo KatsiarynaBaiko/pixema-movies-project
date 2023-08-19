@@ -186,7 +186,14 @@ const SelectedPost = () => {
                     </div>
 
 
-                    <div className={classNames(styles.description, { [styles.lightDescription]: themeValue === Theme.Light })}>{'In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord.'}</div>
+                    {/* <div className={classNames(styles.description, { [styles.lightDescription]: themeValue === Theme.Light })}>{'In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord.'}</div> */}
+                    <div className={classNames(styles.description, { [styles.lightDescription]: themeValue === Theme.Light })}>
+                        {/* {singlePost?.plot?.plotText?.plainText } */}
+                        {singlePost?.plot?.plotText ? (
+                                    singlePost?.plot?.plotText?.plainText
+                               ) :
+                               'Description Not found'}
+                        </div>
 
                     <div className={styles.descriptionInfo}>
                         <ul className={classNames(styles.descriptionInfoLeft, { [styles.lightDescriptionInfoLeft]: themeValue === Theme.Light })}>
