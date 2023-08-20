@@ -6,8 +6,10 @@ import CardsList from "src/components/CardsList";
 import { getPostsList, PostSelectors } from "src/redux/reducers/postSlice";
 import Button, { ButtonTypes } from "src/components/Button";
 import Pagination from "src/components/Pagination";
+import EmptyState from "src/components/EmptyState";
 
 import styles from './Home.module.scss';
+
 
 
 // MOCK_ARRAY можно прокидывать 
@@ -141,9 +143,19 @@ const Home = () => {
 
     return (
         <div className={styles.container}>
-            {/* <CardsList cardsList={MOCK_ARRAY} /> */}
-            {/* <CardsList cardsList={allFilms} isLoading={isListLoading} /> */}
-            <CardsList cardsList={currentFilms} isLoading={isListLoading} />
+
+            {allFilms.length ? (
+                // <CardsList cardsList={MOCK_ARRAY} />
+                // <CardsList cardsList={allFilms} isLoading={isListLoading} />
+                <CardsList cardsList={currentFilms} isLoading={isListLoading} />
+            ) : (
+                <EmptyState
+                    title={"Nothing was found..."}
+                    description={"Please, visit another page"}
+                />
+            )
+            }
+
             <Pagination
                 filmsPerPage={filmsPerPage}
                 totalFilms={allFilms.length}
