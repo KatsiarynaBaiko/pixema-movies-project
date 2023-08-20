@@ -58,12 +58,15 @@ type ButtonGroupProps = {
 
 const ButtonGroup: FC<ButtonGroupProps> = ({ title, onClick, active}) => {
 
+    const { themeValue } = useThemeContext();
+
     return (
         <div
             // onClick={!disabled ? onClick : undefined}
             onClick={onClick}
             className={classNames(styles.tab, {
                 [styles.active]: active,
+                [styles.lightTab] : themeValue === Theme.Light,
                 // [styles.disabled]: disabled,
             })}
         >
