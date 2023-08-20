@@ -38,13 +38,13 @@ function* postsSagaWorker() {
 
 function* getSinglePostWorker(action: PayloadAction<string>) {
   yield put(setSinglePostLoading(true));
-  const id = action.payload;
+  // const id = action.payload;
   // const response: ApiResponse<FilmTypes> = yield call(    
   const response: ApiResponse<SelectedFilmsResponseData> = yield call(
 
     API.getSinglePost,
-    // action.payload
-    id
+    action.payload
+    // id
   );
   if (response.ok && response.data) {
     // yield put(setSinglePost(response.data));

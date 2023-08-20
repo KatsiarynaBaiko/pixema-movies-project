@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { PostSelectors } from "src/redux/reducers/postSlice";
-import { FilmTypes, Post, Theme } from "src/@types";
+import { FilmTypes, Post, SaveStatus, Theme } from "src/@types";
 import { AddFavouritesIcon, FavouritesIconBlank, TrendsIcon } from "src/assets/icons";
 import { useThemeContext } from "src/context/Theme";
 
@@ -118,6 +118,10 @@ const Card: FC<FilmTypes> = ({ id, ratingsSummary, genres, titleText, primaryIma
                 {/* <div onClick={onSavedClick} className={classNames(styles.favouritesCard, { [styles.lightFavouritesCard]: themeValue === Theme.Light })}>
                     {savedIndex > -1 ? <AddFavouritesIcon /> : <FavouritesIconBlank />}
                 </div> */}
+                <div onClick={() => onSavedClick(SaveStatus.Saved)} className={classNames(styles.favouritesCard, { [styles.lightFavouritesCard]: themeValue === Theme.Light })}>
+                    {savedIndex === -1 ? <FavouritesIconBlank /> : <AddFavouritesIcon />}
+                </div>
+
             </div>
             <div onClick={onTitleClick} className={classNames(styles.name, { [styles.lightName]: themeValue === Theme.Light })}>{titleText.text}</div>
             {/* <div className={styles.genre}>History movie</div> */}

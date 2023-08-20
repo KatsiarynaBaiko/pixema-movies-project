@@ -156,7 +156,7 @@ export type FilmTypes = {
     },
     classname?: string;
     // onSavedClick?: () => void;
-    onSavedClick?: (status: SaveStatus) => void;
+    onSavedClick: (status: SaveStatus) => void;
 }
 
 export enum SaveStatus {

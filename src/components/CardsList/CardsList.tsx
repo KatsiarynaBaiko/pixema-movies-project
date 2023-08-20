@@ -2,7 +2,7 @@
 import React, { FC } from "react";
 import { useDispatch } from "react-redux";
 
-import { FilmsListTypes, FilmTypes, Post, PostsList } from "src/@types";
+import { FilmsListTypes, FilmTypes, Post, PostsList, SaveStatus } from "src/@types";
 import { setSavedStatus } from "src/redux/reducers/postSlice";
 
 import styles from './CardsList.module.scss';
@@ -54,8 +54,12 @@ const CardsList: FC<CardsListProps> = ({ cardsList, isLoading }) => {
 
     const dispatch = useDispatch();
 
-    const onSavedClick = (card: FilmTypes) => () => {
-        dispatch(setSavedStatus({ card }))
+    // const onSavedClick = (card: FilmTypes) => () => {
+    //     dispatch(setSavedStatus({ card }))
+    // }
+
+    const onSavedStatus = (card: FilmTypes) => (status: SaveStatus) => {
+        dispatch(setSavedStatus({ card, status }))
     }
 
     // if (isLoading) {
@@ -70,7 +74,7 @@ const CardsList: FC<CardsListProps> = ({ cardsList, isLoading }) => {
                 return <Card
                     key={el.id}
                     {...el}
-                    onSavedClick={onSavedClick(el)}
+                    onSavedClick={onSavedStatus(el)}
                 />
             })
             }
