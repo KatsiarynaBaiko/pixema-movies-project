@@ -9,9 +9,9 @@ import { getSinglePost, PostSelectors, setSavedStatus } from "src/redux/reducers
 import { useThemeContext } from "src/context/Theme";
 import { ButtonGroupTypes, FilmTypes, SaveStatus, Theme } from "src/@types";
 import Loader from "src/components/Loader";
+import ButtonGroupList from "src/components/ButtonGroupList";
 
 import styles from './SelectedPost.module.scss';
-import ButtonGroupList from "src/components/ButtonGroupList";
 
 
 
@@ -133,6 +133,7 @@ const SelectedPost = () => {
 
     const isSinglePostLoading = useSelector(PostSelectors.getSinglePostLoading);
 
+    // mapping жанров - отображаем через точечку
     const filmsGenres = singlePost?.genres?.genres.map(genre => genre.text).join(' • ');
 
 
@@ -153,7 +154,6 @@ const SelectedPost = () => {
                 onSavedStatus(singlePost)(SaveStatus.Saved)
             }
         } else {
-
             return null
         }
     };
@@ -192,7 +192,6 @@ const SelectedPost = () => {
                         onTabClick={onTabClick} />
                 </div>
 
-
                 <div className={styles.singleMovieInfo}>
 
                     {/* <div className={styles.genre}>{'History movies'}</div> */}
@@ -222,9 +221,9 @@ const SelectedPost = () => {
                                 {singlePost?.runtime ? (
                                     singlePost?.runtime?.seconds / 60 + ' min'
                                 ) :
-                                    'Not found min'}
+                                    'Not found min'
+                                }
                             </div>
-
                         </div>
                     </div>
 
