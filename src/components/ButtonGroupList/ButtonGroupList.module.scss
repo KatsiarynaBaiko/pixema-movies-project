@@ -1,0 +1,9 @@
+@import "src/styles/colors";
+
+
+.tabsListContainer {
+    gap: 1px;
+    max-width: 266px;
+    display: flex;
+    flex-direction: row;
+}

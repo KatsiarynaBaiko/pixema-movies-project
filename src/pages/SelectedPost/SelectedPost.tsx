@@ -162,10 +162,7 @@ const SelectedPost = () => {
         () => [
             {
                 key: ButtonGroupTypes.Favourites,
-                title:
-                    savedIndex === -1
-                        ? <FavouritesIconBlank />
-                        : <AddFavouritesIcon />
+                title: savedIndex === -1 ? <FavouritesIconBlank /> : <AddFavouritesIcon />
             },
             {
                 key: ButtonGroupTypes.Share,
