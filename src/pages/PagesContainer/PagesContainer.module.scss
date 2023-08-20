@@ -9,11 +9,15 @@
     background-color: $black;
     position: relative;
     overflow: scroll;
+    padding: 40px 0px;
+    margin: 0px 40px;
 }
 
 .header {
     position: fixed;
     width: 100%;
+    width: calc(100% - 80px);
+
     // border: 1px solid $white;
 }
 
@@ -35,8 +39,8 @@
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
-    top: 96px;
-    height: calc(100% - 96px);
+    top: 136px;
+    height: calc(100% - 136px);
 }
 
 // .tabsList {

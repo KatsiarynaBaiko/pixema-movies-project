@@ -66,7 +66,7 @@ const PagesContainer = () => {
             <div className={styles.containerContentSide}>
                 <div className={styles.tabsList}>
                     {/* {tabsList.map(({ link, type, title, icon, disabled }) => { */}
-                    {tabsList.map(({ link, title, icon}) => {
+                    {tabsList.map(({ link, title, icon }) => {
                         return (
                             <NavLink
                                 key={link}
@@ -84,7 +84,6 @@ const PagesContainer = () => {
                         )
                     })}
                 </div >
-
                 <div className={styles.footer}>
                     <Footer footer={'© All rights reserved'} className={styles.footerSecondary} />
                 </div>
