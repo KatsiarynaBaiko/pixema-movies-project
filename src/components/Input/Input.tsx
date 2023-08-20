@@ -7,6 +7,7 @@ import { Theme } from "src/@types";
 import styles from './Input.module.scss';
 
 
+
 type InputProps = {
     title?: string;
     placeholder: string;

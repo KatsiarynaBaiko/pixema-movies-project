@@ -2,8 +2,8 @@ import React, { FC } from "react";
 
 import { ButtonGroupListType, ButtonGroupTypes } from "src/@types";
 
-import ButtonGroup from "../ButtonGroup/ButtonGroup";
 import styles from './ButtonGroupList.module.scss';
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 
 
 type ButtonGroupListProps = {

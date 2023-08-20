@@ -8,6 +8,7 @@ import { useThemeContext } from "src/context/Theme";
 import styles from "./EmptyState.module.scss";
 
 
+
 type EmptyStatePropsType = {
   title: string;
   description: string;

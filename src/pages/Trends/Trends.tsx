@@ -7,9 +7,10 @@ import CardsList from "src/components/CardsList";
 import { Theme } from "src/@types";
 import { useThemeContext } from "src/context/Theme";
 import EmptyState from "src/components/EmptyState";
+import Pagination from "src/components/Pagination";
 
 import styles from './Trends.module.scss';
-import Pagination from "src/components/Pagination";
+
 
 
 const Trends = () => {

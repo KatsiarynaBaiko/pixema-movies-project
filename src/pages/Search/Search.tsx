@@ -10,10 +10,10 @@ import EmptyState from "src/components/EmptyState";
 import CardsList from "src/components/CardsList";
 import Loader from "src/components/Loader";
 import Pagination from "src/components/Pagination";
+import { getSearchedPosts, PostSelectors } from "src/redux/reducers/postSlice";
 
 import styles from "./Search.module.scss";
 import { RoutesList } from "../Router";
-import { getSearchedPosts, PostSelectors } from "src/redux/reducers/postSlice";
 
 
 

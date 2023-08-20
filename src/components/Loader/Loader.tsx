@@ -1,6 +1,8 @@
 import React from "react";
 import Lottie from "lottie-react";
+
 import animation from "src/assets/animation.json";
+
 
 
 const Loader = () => {

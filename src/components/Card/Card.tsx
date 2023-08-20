@@ -11,6 +11,7 @@ import { useThemeContext } from "src/context/Theme";
 import styles from './Card.module.scss'
 
 
+
 // первый апишник
 // type CardProps = {
 //     card: Post;

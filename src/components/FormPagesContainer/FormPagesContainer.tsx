@@ -1,15 +1,16 @@
 import React, { FC, ReactElement } from "react";
+import classNames from "classnames";
 
 import { Children, Theme } from "src/@types";
+import { PixemaLogoIcon } from "src/assets/icons";
+import { useThemeContext } from "src/context/Theme";
 
 import styles from './FormPagesContainer.module.scss';
-
 import Title from "../Title";
 import Button, { ButtonTypes } from "../Button";
-import { PixemaLogoIcon } from "src/assets/icons";
 import Footer from "../Footer";
-import { useThemeContext } from "src/context/Theme";
-import classNames from "classnames";
+
+
 
 type FormPagesContainerProps = {
     title: string;

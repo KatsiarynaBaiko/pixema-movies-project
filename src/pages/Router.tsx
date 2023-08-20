@@ -12,6 +12,7 @@ import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 
 
+
 //  enum, так как наши пути захардкожены(неизменны)
 export enum RoutesList {
     Home = "/",

@@ -1,8 +1,10 @@
 import React, { FC } from "react";
+
 import { TabsListType, TabTypes } from "src/@types";
 
 import styles from './TabsList.module.scss';
 import Tab from "../Tab";
+
 
 
 type TabsListProps = {

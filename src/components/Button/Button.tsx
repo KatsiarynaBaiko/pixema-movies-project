@@ -2,9 +2,11 @@
 import React, { FC, ReactElement } from 'react'
 import classNames from 'classnames';
 
-import styles from './Button.module.scss'
 import { useThemeContext } from 'src/context/Theme';
 import { Theme } from 'src/@types';
+
+import styles from './Button.module.scss'
+
 
 
 // два фиксированных свойства Button

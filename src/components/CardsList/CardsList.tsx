@@ -12,7 +12,6 @@ import EmptyState from "../EmptyState";
 
 
 
-
 // первый апишник
 // type CardsListProps = {
 //     cardsList: PostsList;

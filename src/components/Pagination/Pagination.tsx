@@ -7,6 +7,8 @@ import { Theme } from "src/@types";
 
 import styles from "./Pagination.module.scss";
 
+
+
 // type PaginationProps = {
 //   pagesCount: number;
 //   onPageChange: (selectedItem: { selected: number }) => void;

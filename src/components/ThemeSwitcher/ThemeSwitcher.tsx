@@ -3,9 +3,10 @@ import classNames from "classnames";
 
 import { useThemeContext } from "src/context/Theme";
 import { Theme } from "src/@types";
+import { MoonIcon, SunIcon } from "src/assets/icons";
 
 import styles from './ThemeSwitcher.module.scss';
-import { MoonIcon, SunIcon } from "src/assets/icons";
+
 
 
 type ThemeSwitcherProps = {

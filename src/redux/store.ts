@@ -6,6 +6,7 @@ import themeReducer from './reducers/themeSlice'
 import rootSaga from "./sagas/rootSaga";
 
 
+
 const sagaMiddleware = createSagaMiddleware ();
 
 const store = configureStore({

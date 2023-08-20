@@ -15,7 +15,6 @@ type TabProps = {
     disabled?: boolean;
 }
 
-
 const Tab: FC<TabProps> = ({ title, icon, onClick, active, disabled }) => {
 
     return (

@@ -1,6 +1,8 @@
 import React, { FC } from "react"
-import { Children, Theme } from "../../@types";
+
 import ThemeContext from "./Context"
+import { Children, Theme } from "../../@types";
+
 
 
 type ThemeProviderProps = {

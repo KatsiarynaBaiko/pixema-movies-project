@@ -10,6 +10,7 @@ import { getPostsList, getSearchedPosts, getSinglePost, getTrendsPostsList,
 import { PostsResponseData, SelectedFilmsResponseData } from "../@types";
 
 
+
 // function* postsSagaWorker() {
 //   const response: ApiResponse<PostsResponseData> = yield call(API.getPosts);
 //   if (response.ok && response.data) {
