@@ -8,12 +8,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import Title from "src/components/Title";
 import EmptyState from "src/components/EmptyState";
 import CardsList from "src/components/CardsList";
+import Loader from "src/components/Loader";
+import Pagination from "src/components/Pagination";
 
 import styles from "./Search.module.scss";
 import { RoutesList } from "../Router";
 import { getSearchedPosts, PostSelectors } from "src/redux/reducers/postSlice";
-import Loader from "src/components/Loader";
-import Pagination from "src/components/Pagination";
 
 
 
@@ -52,10 +52,11 @@ const Search = () => {
         <div>
             <Title title={`Search results: "${title}"`} />
             <div className={styles.container}>
-                {searchedPosts.length && !isSearchedPostsLoading  ? (
+                {/* {searchedPosts.length ? ( */}
+                {searchedPosts.length && !isSearchedPostsLoading ? (
                     <div className={styles.searchResultsContainer}>
                         {/* <CardsList cardsList={searchedPosts} /> */}
-                        {/* <CardsList cardsList={searchedPosts} isLoading={isSearchedPostsLoading}/> */}
+                        {/* <CardsList cardsList={currentFilms} isLoading={isSearchedPostsLoading} /> */}
                         <CardsList cardsList={currentFilms} />
 
                     </div>
@@ -65,7 +66,7 @@ const Search = () => {
                     //     title={"Nothing was found..."}
                     //     description={"Try another search request"}
                     // />
-                    <Loader/>
+                    <Loader />
                 )
                 }
             </div>
