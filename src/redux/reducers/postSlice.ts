@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { FilmsListTypes, FilmTypes, Post, PostsList } from "src/@types";
+import { FilmsListTypes, FilmTypes, Post, PostsList, SaveStatus } from "src/@types";
 
 import { RootState } from "../store";
 
@@ -49,18 +49,36 @@ const postSlice = createSlice({
         },
 
 
-        setSavedStatus: (state, action: PayloadAction<{ card: FilmTypes }>) => {
-            const { card } = action.payload;
+        // setSavedStatus: (state, action: PayloadAction<{ card: FilmTypes }>) => {
+        //     const { card } = action.payload;
+
+        //     const savedIndex = state.savedPosts.findIndex(
+        //         (item) => item.id === card.id
+        //     );
+
+        //     if (savedIndex === -1) {
+        //         state.savedPosts.push(card)
+        //     } else
+        //         state.savedPosts.splice(savedIndex, 1)
+        // },
+
+        setSavedStatus: (state, action: PayloadAction<{ card: FilmTypes; status: SaveStatus }>) => {
+            const { card, status } = action.payload;
 
             const savedIndex = state.savedPosts.findIndex(
                 (item) => item.id === card.id
             );
 
-            if (savedIndex === -1) {
+            const isSaved = status === SaveStatus.Saved
+
+            const mainIndex = isSaved ? savedIndex : 1
+
+            if (mainIndex === -1) {
                 state.savedPosts.push(card)
             } else
-                state.savedPosts.splice(savedIndex, 1)
+                state.savedPosts.splice(mainIndex, 1)
         },
+
 
         getSinglePost: (_, __: PayloadAction<string>) => { },
 

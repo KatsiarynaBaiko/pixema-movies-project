@@ -89,7 +89,7 @@ const Card: FC<FilmTypes> = ({ id, ratingsSummary, genres, titleText, primaryIma
         navigate(`/titles/${id}/`);
     };
 
-    const filmsGenres = genres?.genres.map(genre => genre.text).join(' • ');
+    const filmsGenres = genres?.genres?.map(genre => genre.text).join(' • ');
 
     return (
 
@@ -115,9 +115,9 @@ const Card: FC<FilmTypes> = ({ id, ratingsSummary, genres, titleText, primaryIma
                     </div>
                 ) : ''}
 
-                <div onClick={onSavedClick} className={classNames(styles.favouritesCard, { [styles.lightFavouritesCard]: themeValue === Theme.Light })}>
+                {/* <div onClick={onSavedClick} className={classNames(styles.favouritesCard, { [styles.lightFavouritesCard]: themeValue === Theme.Light })}>
                     {savedIndex > -1 ? <AddFavouritesIcon /> : <FavouritesIconBlank />}
-                </div>
+                </div> */}
             </div>
             <div onClick={onTitleClick} className={classNames(styles.name, { [styles.lightName]: themeValue === Theme.Light })}>{titleText.text}</div>
             {/* <div className={styles.genre}>History movie</div> */}

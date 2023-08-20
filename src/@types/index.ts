@@ -155,10 +155,32 @@ export type FilmTypes = {
         __typename: string
     },
     classname?: string;
-    onSavedClick?: () => void;
+    // onSavedClick?: () => void;
+    onSavedClick?: (status: SaveStatus) => void;
+}
+
+export enum SaveStatus {
+    Saved = 'saved',
+    NotSaved = 'notSaved'
 }
 
 // массив наших постов (карточек c фильмами)
 // второй апишник (moviesdatabase.p.rapidapi)
 export type FilmsListTypes = FilmTypes[];
 
+
+// enum, так как у нас несколько свойств ButtonGroup (Tab)
+export enum ButtonGroupTypes {
+    Favourites = 'favourites',
+    Share = 'share'
+}
+
+// наша ButtonGroup (табина) + у нее может быть иконка
+export type ButtonGroup = {
+    key: ButtonGroupTypes;
+    title: string | ReactElement;
+    // disabled: boolean;
+};
+
+// массив наших Табин
+export type ButtonGroupListType = ButtonGroup[];
