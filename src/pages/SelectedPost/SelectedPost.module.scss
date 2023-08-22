@@ -208,6 +208,7 @@ ul {
 .containerRight {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .recommendationsContainer {
@@ -219,17 +220,19 @@ margin-top: 56px;
 
 .recommendationsText {
     color: $white;
-    text-align: center;
+    text-align: start;
     font-family: 'Exo 2';
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: 36px;
+    margin-bottom: 40px;
+
 }
 
-.lightRecommendationsText {
-    color: $dark;
-}
+// .lightRecommendationsText {
+//     color: $dark;
+// }
 
 .recommendationsTextEmptyState {
     color: $secondary;
@@ -241,6 +244,6 @@ margin-top: 56px;
     line-height: 32px; 
 }
 
-.lightRecommendationsTextEmptyState {
-    color: $dark;
-}
+// .lightRecommendationsTextEmptyState {
+//     color: $dark;
+// }
