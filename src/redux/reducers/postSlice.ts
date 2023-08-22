@@ -17,6 +17,8 @@ type InitialState = {
     searchedPostsLoading: boolean;
     trendsPostsList: FilmsListTypes;
     trendsPostsListLoading: boolean;
+    recommendationsPostsList: FilmsListTypes;
+    recommendationsPostsListLoading: boolean;
 };
 
 
@@ -30,6 +32,8 @@ const initialState: InitialState = {
     searchedPostsLoading: false,
     trendsPostsList: [],
     trendsPostsListLoading: false,
+    recommendationsPostsList: [],
+    recommendationsPostsListLoading: false,
 };
 
 
@@ -114,6 +118,16 @@ const postSlice = createSlice({
         setTrendsPostsListLoading: (state, action: PayloadAction<boolean>) => {
             state.trendsPostsListLoading = action.payload;
         },
+
+        getRecommendationsPostsList: (_, __: PayloadAction<undefined>) => { },
+
+        setRecommendationsPostsList: (state, action: PayloadAction<FilmsListTypes>) => {
+            state.recommendationsPostsList = action.payload
+        },
+
+        setRecommendationsPostsListLoading: (state, action: PayloadAction<boolean>) => {
+            state.recommendationsPostsListLoading = action.payload;
+        }
     },
 });
 
@@ -123,6 +137,7 @@ export const {
     getSinglePost, setSinglePost, setSinglePostLoading,
     getSearchedPosts, setSearchedPosts, clearSearchedPosts, setSearchedPostsLoading,
     getTrendsPostsList, setTrendsPostsList, setTrendsPostsListLoading,
+    getRecommendationsPostsList, setRecommendationsPostsList, setRecommendationsPostsListLoading,
 } = postSlice.actions;
 
 export const PostSelectors = {
@@ -135,6 +150,8 @@ export const PostSelectors = {
     getSearchedPostsLoading: (state: RootState) => state.postReducer.searchedPostsLoading,
     getTrendsPostsList: (state: RootState) => state.postReducer.trendsPostsList,
     getTrendsPostsListLoading: (state: RootState) => state.postReducer.trendsPostsListLoading,
+    getRecommendationsPostsList: (state: RootState) => state.postReducer.recommendationsPostsList,
+    getRecommendationsPostsListLoading: (state: RootState) => state.postReducer.recommendationsPostsListLoading,
 };
 
 

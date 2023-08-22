@@ -5,11 +5,13 @@ import classNames from "classnames";
 
 import { AddFavouritesIcon, FavouritesIconBlank, ShareIcon, TrendsIcon } from "src/assets/icons";
 import ButtonGroup from "src/components/ButtonGroup";
-import { getSinglePost, PostSelectors, setSavedStatus } from "src/redux/reducers/postSlice";
+import { getRecommendationsPostsList, getSinglePost, PostSelectors, setSavedStatus } from "src/redux/reducers/postSlice";
 import { useThemeContext } from "src/context/Theme";
 import { ButtonGroupTypes, FilmTypes, SaveStatus, Theme } from "src/@types";
 import Loader from "src/components/Loader";
 import ButtonGroupList from "src/components/ButtonGroupList";
+import CardsList from "src/components/CardsList";
+import EmptyState from "src/components/EmptyState";
 
 import styles from './SelectedPost.module.scss';
 
@@ -172,6 +174,15 @@ const SelectedPost = () => {
         [savedIndex]
     );
 
+
+    const recommendationsFilms = useSelector(PostSelectors.getRecommendationsPostsList)
+    useEffect(() => {
+        dispatch(getRecommendationsPostsList())
+    }, [])
+
+    const isRecommendationsListLoading = useSelector(PostSelectors.getRecommendationsPostsListLoading)
+
+
     return (
         singlePost && !isSinglePostLoading ? (
             <div className={styles.container}>
@@ -192,81 +203,92 @@ const SelectedPost = () => {
                         onTabClick={onTabClick} />
                 </div>
 
-                <div className={styles.singleMovieInfo}>
+                <div className={styles.containerRight}>
 
-                    {/* <div className={styles.genre}>{'History movies'}</div> */}
-                    <div className={styles.genre}>{filmsGenres}</div>
-                    <div className={classNames(styles.name, { [styles.lightTitle]: themeValue === Theme.Light })}>{singlePost?.titleText?.text}</div>
+                    <div className={styles.singleMovieInfo}>
 
-                    <div className={styles.ratingContainer}>
+                        {/* <div className={styles.genre}>{'History movies'}</div> */}
+                        <div className={styles.genre}>{filmsGenres}</div>
+                        <div className={classNames(styles.name, { [styles.lightTitle]: themeValue === Theme.Light })}>{singlePost?.titleText?.text}</div>
 
-                        <div className={classNames(styles.rating, {})}>
-                            {/* <div className={styles.ratingScore}>{'9'} <TrendsIcon /> </div> */}
-                            {singlePost?.ratingsSummary?.aggregateRating ? (
-                                <div
-                                    className={classNames(styles.rating, {
-                                        [styles.ratingOrange]: singlePost?.ratingsSummary?.aggregateRating <= 4,
-                                        [styles.ratingYellow]: singlePost?.ratingsSummary?.aggregateRating > 4 && singlePost?.ratingsSummary?.aggregateRating < 7,
-                                        [styles.ratingGreen]: singlePost?.ratingsSummary?.aggregateRating >= 7,
+                        <div className={styles.ratingContainer}>
 
-                                    })}
-                                >
-                                    {singlePost?.ratingsSummary?.aggregateRating >= 7 ? <TrendsIcon /> : ''}
-                                    {singlePost?.ratingsSummary?.aggregateRating}
+                            <div className={classNames(styles.rating, {})}>
+                                {/* <div className={styles.ratingScore}>{'9'} <TrendsIcon /> </div> */}
+                                {singlePost?.ratingsSummary?.aggregateRating ? (
+                                    <div
+                                        className={classNames(styles.rating, {
+                                            [styles.ratingOrange]: singlePost?.ratingsSummary?.aggregateRating <= 4,
+                                            [styles.ratingYellow]: singlePost?.ratingsSummary?.aggregateRating > 4 && singlePost?.ratingsSummary?.aggregateRating < 7,
+                                            [styles.ratingGreen]: singlePost?.ratingsSummary?.aggregateRating >= 7,
+
+                                        })}
+                                    >
+                                        {singlePost?.ratingsSummary?.aggregateRating >= 7 ? <TrendsIcon /> : ''}
+                                        {singlePost?.ratingsSummary?.aggregateRating}
+                                    </div>
+                                ) : ''}
+                                <div className={classNames(styles.imdb_id, { [styles.lightImdb_id]: themeValue === Theme.Light })}>{'IMDb 7.6'}</div>
+                                {/* <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>{'130 min'}</div> */}
+                                <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>
+                                    {singlePost?.runtime ? (
+                                        singlePost?.runtime?.seconds / 60 + ' min'
+                                    ) :
+                                        'Not found min'
+                                    }
                                 </div>
-                            ) : ''}
-                            <div className={classNames(styles.imdb_id, { [styles.lightImdb_id]: themeValue === Theme.Light })}>{'IMDb 7.6'}</div>
-                            {/* <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>{'130 min'}</div> */}
-                            <div className={classNames(styles.runtime, { [styles.lightRuntime]: themeValue === Theme.Light })}>
-                                {singlePost?.runtime ? (
-                                    singlePost?.runtime?.seconds / 60 + ' min'
-                                ) :
-                                    'Not found min'
-                                }
                             </div>
+                        </div>
+
+
+                        {/* <div className={classNames(styles.description, { [styles.lightDescription]: themeValue === Theme.Light })}>{'In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord.'}</div> */}
+                        <div className={classNames(styles.description, { [styles.lightDescription]: themeValue === Theme.Light })}>
+                            {/* {singlePost?.plot?.plotText?.plainText } */}
+                            {singlePost?.plot?.plotText ? (
+                                singlePost?.plot?.plotText?.plainText
+                            ) :
+                                'Description Not found'}
+                        </div>
+
+                        <div className={styles.descriptionInfo}>
+                            <ul className={classNames(styles.descriptionInfoLeft, { [styles.lightDescriptionInfoLeft]: themeValue === Theme.Light })}>
+                                <li>Year</li>
+                                <li>Released</li>
+                                <li>BoxOffice</li>
+                                <li>Country</li>
+                                <li>Production</li>
+                                <li>Actors</li>
+                                <li>Director</li>
+                                <li>Writers</li>
+                            </ul>
+                            <ul className={classNames(styles.descriptionInfoRight, { [styles.lightDescriptionInfoRight]: themeValue === Theme.Light })}>
+                                <li>{singlePost?.releaseYear?.year}</li>
+                                {/* <li>{singlePost?.releaseDate?.day + '.' + singlePost?.releaseDate?.month + '.' + singlePost?.releaseDate?.year}</li> */}
+                                <li>{singlePost?.releaseDate ? singlePost?.releaseDate?.day + '.' + singlePost?.releaseDate?.month + '.' + singlePost?.releaseDate?.year : singlePost?.releaseYear?.year}</li>
+                                <li>{'$381,409,310'}</li>
+                                <li>{'United Kingdom, United States'}</li>
+                                <li>{'Heyday Films, Moving Picture Company, Warner Bros.'}</li>
+                                <li>{'Daniel Radcliffe, Emma Watson, Rupert Grint'}</li>
+                                <li>{'David Yates'}</li>
+                                <li>{'J.K. Rowling, Steve Kloves'}</li>
+                            </ul>
                         </div>
                     </div>
 
-
-                    {/* <div className={classNames(styles.description, { [styles.lightDescription]: themeValue === Theme.Light })}>{'In 1984, after saving the world in Wonder Woman (2017), the immortal Amazon warrior, Princess Diana of Themyscira, finds herself trying to stay under the radar, working as an archaeologist at the Smithsonian Museum. With the memory of the brave U.S. pilot, Captain Steve Trevor, etched on her mind, Diana Prince becomes embroiled in a sinister conspiracy of global proportions when a transparent, golden-yellow citrine gemstone catches the eye of the power-hungry entrepreneur, Maxwell Lord.'}</div> */}
-                    <div className={classNames(styles.description, { [styles.lightDescription]: themeValue === Theme.Light })}>
-                        {/* {singlePost?.plot?.plotText?.plainText } */}
-                        {singlePost?.plot?.plotText ? (
-                            singlePost?.plot?.plotText?.plainText
-                        ) :
-                            'Description Not found'}
-                    </div>
-
-                    <div className={styles.descriptionInfo}>
-                        <ul className={classNames(styles.descriptionInfoLeft, { [styles.lightDescriptionInfoLeft]: themeValue === Theme.Light })}>
-                            <li>Year</li>
-                            <li>Released</li>
-                            <li>BoxOffice</li>
-                            <li>Country</li>
-                            <li>Production</li>
-                            <li>Actors</li>
-                            <li>Director</li>
-                            <li>Writers</li>
-                        </ul>
-                        <ul className={classNames(styles.descriptionInfoRight, { [styles.lightDescriptionInfoRight]: themeValue === Theme.Light })}>
-                            <li>{singlePost?.releaseYear?.year}</li>
-                            {/* <li>{singlePost?.releaseDate?.day + '.' + singlePost?.releaseDate?.month + '.' + singlePost?.releaseDate?.year}</li> */}
-                            <li>{singlePost?.releaseDate ? singlePost?.releaseDate?.day + '.' + singlePost?.releaseDate?.month + '.' + singlePost?.releaseDate?.year : singlePost?.releaseYear?.year}</li>
-                            <li>{'$381,409,310'}</li>
-                            <li>{'United Kingdom, United States'}</li>
-                            <li>{'Heyday Films, Moving Picture Company, Warner Bros.'}</li>
-                            <li>{'Daniel Radcliffe, Emma Watson, Rupert Grint'}</li>
-                            <li>{'David Yates'}</li>
-                            <li>{'J.K. Rowling, Steve Kloves'}</li>
-                        </ul>
+                    <div className={styles.recommendationsContainer}>
+                        <div className={classNames(styles.recommendationsText, { [styles.lightRecommendationsText]: themeValue === Theme.Light })}> Recommendations:</div>
+                        {recommendationsFilms.length ? (
+                            <CardsList cardsList={recommendationsFilms} isLoading={isRecommendationsListLoading} />
+                        ) : (
+                            // <EmptyState
+                            //     title={"Coming soon..."}
+                            //     description={"Plese, visit Trends page"}
+                            // />
+                            <div className={classNames(styles.recommendationsTextEmptyState, { [styles.lightRecommendationsTextEmptyState]: themeValue === Theme.Light })}> Coming soon... Plese, visit Trends page</div>
+                        )
+                        }
                     </div>
                 </div>
-
-
-                {/* <div className={styles.recommendationsContainer}>
-                <div className={styles.recommendationsText}></div>
-                <div className={styles.recommendationsCard}></div>
-            </div> */}
             </div>
         ) : (<Loader />)
     )

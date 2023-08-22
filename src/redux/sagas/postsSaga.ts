@@ -4,9 +4,10 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 import API from "src/utils/api";
 
-import { getPostsList, getSearchedPosts, getSinglePost, getTrendsPostsList, 
-  setPostsList, setPostsListLoading, setSearchedPosts, setSearchedPostsLoading, 
-  setSinglePost, setSinglePostLoading, setTrendsPostsList, setTrendsPostsListLoading } from "../reducers/postSlice";
+import { getPostsList, getRecommendationsPostsList, getSearchedPosts, getSinglePost, getTrendsPostsList, 
+  setPostsList, setPostsListLoading, setRecommendationsPostsList, setRecommendationsPostsListLoading, 
+  setSearchedPosts, setSearchedPostsLoading, setSinglePost, setSinglePostLoading, 
+  setTrendsPostsList, setTrendsPostsListLoading } from "../reducers/postSlice";
 import { PostsResponseData, SelectedFilmsResponseData } from "../@types";
 
 
@@ -89,6 +90,20 @@ function* getTrendsPostsWorker() {
   yield put(setTrendsPostsListLoading(false));
 }
 
+function* getRecommendationsPostsWorker() {
+  yield put(setRecommendationsPostsListLoading(true));
+  const response: ApiResponse<PostsResponseData | null> = yield call(
+    API.getRecommendationsPosts,
+  )
+
+  if (response.data) {
+    yield put(setRecommendationsPostsList(response.data.results))
+
+  } else {
+    console.error('Get Trends Posts List error', response.problem);
+  }
+  yield put(setRecommendationsPostsListLoading(false));
+}
 
 
 // маленький вотчер, связываем его с rootSaga
@@ -98,5 +113,6 @@ export default function* postsSagaWatcher() {
     takeLatest(getSinglePost, getSinglePostWorker),
     takeLatest(getSearchedPosts, getSearchedPostsWorker),
     takeLatest(getTrendsPostsList, getTrendsPostsWorker),
+    takeLatest(getRecommendationsPostsList, getRecommendationsPostsWorker),
   ]);
 }

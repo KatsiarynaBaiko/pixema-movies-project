@@ -182,9 +182,9 @@ ul {
     color: $white
 }
 
-.favourites {
-    // background-color: $white;
-}
+// .favourites {
+//     // background-color: $white;
+// }
 
 .lightTitle,
 .lightDescription {
@@ -201,4 +201,46 @@ ul {
 .lightImdb_id,
 .lightRuntime {
     background-color: $secondary;
+}
+
+// ---
+
+.containerRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.recommendationsContainer {
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+margin-top: 56px;
+}
+
+.recommendationsText {
+    color: $white;
+    text-align: center;
+    font-family: 'Exo 2';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+.lightRecommendationsText {
+    color: $dark;
+}
+
+.recommendationsTextEmptyState {
+    color: $secondary;
+    text-align: center;
+    font-family: 'Exo 2';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 32px; 
+}
+
+.lightRecommendationsTextEmptyState {
+    color: $dark;
 }

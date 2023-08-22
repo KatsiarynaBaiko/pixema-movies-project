@@ -28,7 +28,7 @@ const API = create({
 // };
 // add "base_info"
 const getPosts = () => {
-    return API.get("/titles", {info: "base_info", limit: 50});
+    return API.get("/titles", { info: "base_info", limit: 50 });
 };
 
 
@@ -37,7 +37,7 @@ const getPosts = () => {
 // };
 // add "base_info"
 const getSinglePost = (id: string) => {
-    return API.get(`/titles/${id}/`, {info: "base_info"});
+    return API.get(`/titles/${id}/`, { info: "base_info" });
 };
 
 
@@ -53,13 +53,19 @@ const getSearchPosts = (title: string) => {
 const getTrendsPosts = () => {
     // return API.get("/titles", {info: "base_info", sort: 'year.decr', list: 'top_rated_english_250'});
     // return API.get("/titles", {info: "base_info", sort: 'year.decr', list: 'top_boxoffice_last_weekend_10'});
-    return API.get("/titles", {info: "base_info", sort: 'year.decr', list: 'most_pop_movies', limit: 50});
+    return API.get("/titles", { info: "base_info", sort: 'year.decr', list: 'most_pop_movies', limit: 50 });
 
 };
+
+const getRecommendationsPosts = () => {
+    return API.get("/titles", { info: "base_info", sort: 'year.decr', list: 'top_boxoffice_last_weekend_10', limit: 4 });
+};
+
 
 export default {
     getPosts,
     getSinglePost,
     getSearchPosts,
     getTrendsPosts,
+    getRecommendationsPosts,
 };
