@@ -58,7 +58,9 @@ const getTrendsPosts = () => {
 };
 
 const getRecommendationsPosts = () => {
-    return API.get("/titles", { info: "base_info", sort: 'year.decr', list: 'top_boxoffice_last_weekend_10', limit: 4 });
+    // return API.get("/titles", { info: "base_info", sort: 'year.decr', list: 'top_boxoffice_last_weekend_10', limit: 4 });
+    return API.get("/titles/random", { info: "base_info", sort: 'year.decr', list: 'top_boxoffice_last_weekend_10', limit: 4 });
+
 };
 
 
